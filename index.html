@@ -232,7 +232,7 @@ body {
 .nav.over-light .nav-lang { color: var(--charcoal); }
 
 .nav-icons {
-  display: flex;
+  display: none; /* hamburger hidden on desktop; shown at tablet/mobile via media query */
   align-items: center;
   gap: 18px;
 }
@@ -1277,8 +1277,10 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 640px) {
+/* Tablet & mobile: hide the inline links, show the hamburger menu */
+@media (max-width: 900px) {
   .nav-right .nav-lang { display: none; }
+  .nav-icons { display: flex; }
 }
 @media (max-width: 768px) {
   .nav { padding: 16px 22px; }
@@ -1312,8 +1314,10 @@ body {
 <nav class="nav over-dark" id="mainNav">
   <a href="#" class="nav-logo">o1 Labs</a>
   <div class="nav-right">
-    <a href="/ai-readiness/" class="nav-lang">AI Check</a>
+    <a href="#services" class="nav-lang">Services</a>
+    <a href="#about" class="nav-lang">About</a>
     <a href="/blog/" class="nav-lang">Blog</a>
+    <a href="/ai-readiness/" class="nav-lang">AI Check</a>
     <a href="#contact" class="nav-lang">Contact</a>
     <div class="nav-icons">
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
