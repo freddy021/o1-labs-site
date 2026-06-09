@@ -750,6 +750,23 @@ body {
   stroke-width: 2;
 }
 
+/* ===== PROBLEM FRAMING ===== */
+.problem { background: var(--cream); padding: 104px 44px 30px; }
+.problem-inner { max-width: 1100px; margin: 0 auto; }
+.problem-header { max-width: 640px; margin-bottom: 56px; }
+.problem-label { font-family: var(--sans); font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 3.5px; color: var(--charcoal-light); margin-bottom: 18px; }
+.problem-title { font-family: var(--serif); font-weight: 300; font-size: clamp(30px, 4vw, 46px); line-height: 1.1; color: var(--charcoal); }
+.problem-title em { font-style: italic; }
+.problem-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 768px) { .problem-grid { grid-template-columns: repeat(3, 1fr); } }
+.problem-card { padding: 30px 28px; border: 1px solid rgba(44,44,44,0.10); border-radius: 14px; background: linear-gradient(135deg, rgba(212,225,87,0.04) 0%, rgba(242,239,234,0) 60%); }
+.problem-card-num { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--chartreuse-dark); margin-bottom: 16px; }
+.problem-card-title { font-family: var(--serif); font-weight: 400; font-size: 23px; line-height: 1.2; color: var(--charcoal); margin-bottom: 12px; }
+.problem-card-text { font-family: var(--sans); font-size: 14px; line-height: 1.75; color: var(--charcoal-light); }
+.problem-cta-row { margin-top: 44px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.problem-cta-note { font-family: var(--sans); font-size: 13px; color: var(--charcoal-light); }
+@media (max-width: 768px) { .problem { padding: 80px 24px 24px; } }
+
 /* ===== ABOUT SECTION ===== */
 .about {
   background: var(--cream);
@@ -1260,6 +1277,9 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .nav-right .nav-lang { display: none; }
+}
 @media (max-width: 768px) {
   .nav { padding: 16px 22px; }
   .hero-content { bottom: 56px; left: 24px; right: 24px; }
@@ -1292,6 +1312,7 @@ body {
 <nav class="nav over-dark" id="mainNav">
   <a href="#" class="nav-logo">o1 Labs</a>
   <div class="nav-right">
+    <a href="/ai-readiness/" class="nav-lang">AI Check</a>
     <a href="/blog/" class="nav-lang">Blog</a>
     <a href="#contact" class="nav-lang">Contact</a>
     <div class="nav-icons">
@@ -1309,6 +1330,7 @@ body {
     <a href="#services" class="menu-nav-link" onclick="toggleMenu()">Services</a>
     <a href="#about" class="menu-nav-link" onclick="toggleMenu()">About</a>
     <a href="/blog/" class="menu-nav-link">Blog</a>
+    <a href="/ai-readiness/" class="menu-nav-link">AI Readiness Check</a>
     <a href="#faq" class="menu-nav-link" onclick="toggleMenu()">FAQ</a>
     <a href="#contact" class="menu-nav-link" onclick="toggleMenu()">Contact</a>
   </div>
@@ -1403,6 +1425,40 @@ body {
     </div>
   </div>
 </div>
+
+<!-- PROBLEM FRAMING -->
+<section class="problem" id="why">
+  <div class="problem-inner">
+    <div class="problem-header fade-in">
+      <div class="problem-label">The challenge</div>
+      <h2 class="problem-title">Adopting AI is a <em>people</em> problem, not just a tech one.</h2>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card fade-in">
+        <div class="problem-card-num">01</div>
+        <div class="problem-card-title">Pilots that stall</div>
+        <div class="problem-card-text">The demo impresses the room, then never reaches Monday's workflow. Most AI pilots die in the gap between proof-of-concept and daily use.</div>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card-num">02</div>
+        <div class="problem-card-title">Training that wears off</div>
+        <div class="problem-card-text">A one-off AI talk fades within a week. Without hands-on practice on real work, new habits never actually form.</div>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card-num">03</div>
+        <div class="problem-card-title">Tool overwhelm</div>
+        <div class="problem-card-text">New models and features every week. Teams freeze — unsure where to start, who should own it, or which tool fits the job.</div>
+      </div>
+    </div>
+    <div class="problem-cta-row fade-in">
+      <a href="/ai-readiness/" class="cta-dark">
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <span class="cta-dark-text">Take the free AI Readiness Check</span>
+      </a>
+      <span class="problem-cta-note">2 minutes · see where your team stands</span>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES LISTING (Floema product listing style) -->
 <section class="services-listing">
@@ -1691,6 +1747,7 @@ body {
       <a href="#services" class="footer-link">Services</a>
       <a href="#about" class="footer-link">About</a>
       <a href="/blog/" class="footer-link">Blog</a>
+      <a href="/ai-readiness/" class="footer-link">AI Check</a>
       <a href="#contact" class="footer-link">Contact</a>
       <a href="#" class="footer-link">LinkedIn</a>
     </nav>

@@ -32,6 +32,10 @@ Beyond services, o1 Labs is currently building an AI-native product in the healt
 
 o1 Labs publishes a weekly AI insights blog at https://o1-labs.com/blog/ — practical perspective on agentic AI, enterprise AI adoption, model selection (Gemini, Claude), and AI education. Every article can also be listened to.
 
+## Free AI Readiness Check
+
+o1 Labs offers a free, 2-minute AI Readiness self-assessment at https://o1-labs.com/ai-readiness/ — five questions that score how prepared a team is to adopt AI and return a tailored next step.
+
 ## Contact
 
 Reach o1 Labs through the contact form at https://o1-labs.com/#contact or by email at hello@o1-labs.com.

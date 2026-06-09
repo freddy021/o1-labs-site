@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Readiness Check · o1 Labs</title>
+<meta name="description" content="A free 2-minute self-assessment: see how ready your team is to adopt AI, get a readiness score, and a tailored next step from o1 Labs.">
+<link rel="canonical" href="https://o1-labs.com/ai-readiness/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#D4E157">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="o1 Labs">
+<meta property="og:title" content="Free AI Readiness Check — where does your team stand?">
+<meta property="og:description" content="A free 2-minute self-assessment with a readiness score and a tailored next step.">
+<meta property="og:url" content="https://o1-labs.com/ai-readiness/">
+<meta property="og:image" content="https://o1-labs.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/style.css">
+<style>
+  .rc-wrap { max-width: 720px; margin: 0 auto; padding: 70px 28px 60px; }
+  .rc-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 3.5px; color: var(--charcoal-light); margin-bottom: 18px; }
+  .rc-h1 { font-family: var(--serif); font-weight: 300; font-size: clamp(34px, 5.5vw, 54px); line-height: 1.06; color: var(--charcoal); margin-bottom: 18px; }
+  .rc-h1 em { font-style: italic; }
+  .rc-intro { font-family: var(--sans); font-size: 15px; line-height: 1.8; color: var(--charcoal-light); max-width: 560px; margin-bottom: 48px; }
+
+  .rc-q { border: none; padding: 0; margin: 0 0 34px; }
+  .rc-qtitle { font-family: var(--serif); font-weight: 400; font-size: 22px; color: var(--charcoal); margin-bottom: 16px; padding: 0; }
+  .rc-qnum { color: var(--chartreuse-dark); font-family: var(--sans); font-size: 13px; font-weight: 600; margin-right: 8px; }
+  .rc-options { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .rc-opt { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border: 1px solid rgba(44,44,44,0.14); border-radius: 12px; cursor: pointer; font-family: var(--sans); font-size: 14.5px; color: var(--charcoal); transition: border-color 0.2s, background 0.2s; }
+  .rc-opt:hover { border-color: rgba(212,225,87,0.6); }
+  .rc-opt input { accent-color: var(--chartreuse-dark); width: 16px; height: 16px; flex-shrink: 0; }
+  .rc-opt:has(input:checked) { border-color: var(--chartreuse-dark); background: rgba(212,225,87,0.10); }
+
+  .rc-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--dark-btn); color: var(--white); border: none; border-radius: 40px; padding: 15px 30px; cursor: pointer; font-family: var(--sans); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; transition: background 0.3s, transform 0.3s; }
+  .rc-btn:hover { background: #333; transform: translateY(-1px); }
+  .rc-btn svg { width: 14px; height: 14px; fill: none; stroke: var(--white); stroke-width: 2; }
+  .rc-hint { font-family: var(--sans); font-size: 12px; color: var(--charcoal-light); margin-top: 14px; min-height: 16px; }
+  .rc-hint.err { color: #b3261e; }
+
+  .rc-result { display: none; margin-top: 8px; }
+  .rc-result.show { display: block; animation: rcReveal 0.4s ease; }
+  @keyframes rcReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .rc-scorebar { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rc-band { font-family: var(--serif); font-weight: 300; font-size: clamp(38px, 6vw, 60px); color: var(--charcoal); line-height: 1; }
+  .rc-score { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--chartreuse-dark); text-transform: uppercase; }
+  .rc-rec { font-family: var(--sans); font-size: 15.5px; line-height: 1.8; color: var(--charcoal-light); margin: 18px 0 36px; }
+  .rc-track { height: 6px; border-radius: 6px; background: rgba(44,44,44,0.10); overflow: hidden; margin-bottom: 28px; }
+  .rc-track-fill { height: 100%; width: 0; background: var(--chartreuse); transition: width 0.6s cubic-bezier(0.16,1,0.3,1); }
+
+  .rc-leadform { border-top: 1px solid rgba(44,44,44,0.10); padding-top: 32px; }
+  .rc-leadtitle { font-family: var(--serif); font-weight: 400; font-size: 24px; color: var(--charcoal); margin-bottom: 8px; }
+  .rc-leadsub { font-family: var(--sans); font-size: 13.5px; line-height: 1.7; color: var(--charcoal-light); margin-bottom: 24px; }
+  .rc-field { margin-bottom: 16px; }
+  .rc-field label { display: block; font-family: var(--sans); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--charcoal-light); margin-bottom: 8px; }
+  .rc-field input { width: 100%; padding: 13px 16px; border: 1px solid rgba(44,44,44,0.16); border-radius: 12px; font-family: var(--sans); font-size: 15px; color: var(--charcoal); outline: none; background: #fff; transition: border-color 0.2s; }
+  .rc-field input:focus { border-color: var(--chartreuse-dark); }
+  .rc-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .rc-status { font-family: var(--sans); font-size: 13px; line-height: 1.6; margin-top: 16px; min-height: 18px; }
+  .rc-status.success { color: #5a7d00; }
+  .rc-status.error { color: #b3261e; }
+</style>
+</head>
+<body>
+<header>
+  <nav class="bnav">
+    <a href="/" class="bnav-logo">o1 Labs</a>
+    <div class="bnav-links">
+      <a href="/#services" class="bnav-link">Services</a>
+      <a href="/#about" class="bnav-link">About</a>
+      <a href="/blog/" class="bnav-link">Blog</a>
+      <a href="/#contact" class="bnav-link">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="rc-wrap">
+  <div class="rc-eyebrow">Free · 2 minutes</div>
+  <h1 class="rc-h1">How ready is your team to <em>adopt AI?</em></h1>
+  <p class="rc-intro">Answer five quick questions for an instant readiness score and a tailored next step. No fluff — just an honest read on where your team stands today.</p>
+
+  <form id="rcQuiz">
+    <fieldset class="rc-q">
+      <legend class="rc-qtitle"><span class="rc-qnum">01</span>How is your team using AI today?</legend>
+      <div class="rc-options">
+        <label class="rc-opt"><input type="radio" name="q1" value="0">Not yet — just curious</label>
+        <label class="rc-opt"><input type="radio" name="q1" value="1">A few individuals experimenting</label>
+        <label class="rc-opt"><input type="radio" name="q1" value="2">Several teams using it regularly</label>
+        <label class="rc-opt"><input type="radio" name="q1" value="3">Embedded in our core workflows</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="rc-q">
+      <legend class="rc-qtitle"><span class="rc-qnum">02</span>Do people know when to trust vs. verify AI output?</legend>
+      <div class="rc-options">
+        <label class="rc-opt"><input type="radio" name="q2" value="0">Not really</label>
+        <label class="rc-opt"><input type="radio" name="q2" value="1">Some do</label>
+        <label class="rc-opt"><input type="radio" name="q2" value="2">Most do</label>
+        <label class="rc-opt"><input type="radio" name="q2" value="3">It's second nature</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="rc-q">
+      <legend class="rc-qtitle"><span class="rc-qnum">03</span>Is there a clear owner and plan for AI adoption?</legend>
+      <div class="rc-options">
+        <label class="rc-opt"><input type="radio" name="q3" value="0">None</label>
+        <label class="rc-opt"><input type="radio" name="q3" value="1">Informal / grassroots</label>
+        <label class="rc-opt"><input type="radio" name="q3" value="2">A plan exists</label>
+        <label class="rc-opt"><input type="radio" name="q3" value="3">Funded and owned</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="rc-q">
+      <legend class="rc-qtitle"><span class="rc-qnum">04</span>Have your people had hands-on AI training?</legend>
+      <div class="rc-options">
+        <label class="rc-opt"><input type="radio" name="q4" value="0">No</label>
+        <label class="rc-opt"><input type="radio" name="q4" value="1">Ad hoc / self-taught</label>
+        <label class="rc-opt"><input type="radio" name="q4" value="2">Some structured sessions</label>
+        <label class="rc-opt"><input type="radio" name="q4" value="3">An ongoing program</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="rc-q">
+      <legend class="rc-qtitle"><span class="rc-qnum">05</span>Are AI tools connected to your real systems and data?</legend>
+      <div class="rc-options">
+        <label class="rc-opt"><input type="radio" name="q5" value="0">No</label>
+        <label class="rc-opt"><input type="radio" name="q5" value="1">Piloting integrations</label>
+        <label class="rc-opt"><input type="radio" name="q5" value="2">A few are connected</label>
+        <label class="rc-opt"><input type="radio" name="q5" value="3">Broadly integrated</label>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="rc-btn">
+      See my result
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <div class="rc-hint" id="rcHint"></div>
+  </form>
+
+  <section class="rc-result" id="rcResult" aria-live="polite">
+    <div class="rc-scorebar">
+      <span class="rc-band" id="rcBand"></span>
+      <span class="rc-score" id="rcScore"></span>
+    </div>
+    <div class="rc-track"><div class="rc-track-fill" id="rcTrackFill"></div></div>
+    <p class="rc-rec" id="rcRec"></p>
+
+    <div class="rc-leadform">
+      <div class="rc-leadtitle">Want the full snapshot?</div>
+      <div class="rc-leadsub">We'll review your answers and send a short, tailored set of next steps for your team — no sales pitch.</div>
+      <form id="rcLead">
+        <div class="rc-field">
+          <label for="rc-name">Your name</label>
+          <input type="text" id="rc-name" name="name" placeholder="Full name" autocomplete="name" required>
+        </div>
+        <div class="rc-field">
+          <label for="rc-email">Work email</label>
+          <input type="email" id="rc-email" name="email" placeholder="name@company.com" autocomplete="email" required>
+        </div>
+        <div class="rc-field">
+          <label for="rc-company">Company</label>
+          <input type="text" id="rc-company" name="company" placeholder="Company name" autocomplete="organization">
+        </div>
+        <div class="rc-hp" aria-hidden="true"><label>Leave empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit" class="rc-btn" id="rcLeadBtn">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <span class="rc-leadlabel">Send me my snapshot</span>
+        </button>
+        <div class="rc-status" id="rcStatus" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="bfooter">
+  <div class="bfooter-inner">
+    <div class="bfooter-logo">o1 Labs</div>
+    <nav class="bfooter-nav">
+      <a href="/#services" class="bfooter-link">Services</a>
+      <a href="/blog/" class="bfooter-link">Blog</a>
+      <a href="/#contact" class="bfooter-link">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var SUPABASE_FN_URL = 'https://njkynmkrvmldujrvbfoi.supabase.co/functions/v1/contact-form';
+  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5qa3lubWtydm1sZHVqcnZiZm9pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTk2MTMsImV4cCI6MjA5NjU5NTYxM30.Oq8-EnecQjezqoJv-6dn6Gz1D_eJZ8i87GBOSdJHs3g';
+
+  var BANDS = [
+    { max: 5,  name: 'Exploring',    rec: "Your team is at the starting line — and that's a great place to build from. The fastest win is foundational, hands-on workshops that build confidence and a shared vocabulary before you invest in tooling." },
+    { max: 10, name: 'Experimenting', rec: "You've got real momentum, but it's uneven. A focused AI Product Strategy Sprint plus targeted, role-specific training turns scattered experiments into repeatable wins your whole team can rely on." },
+    { max: 15, name: 'Scaling',      rec: "You're ahead of most organizations. The opportunity now is depth and consistency — enterprise L&D and leadership advisory to embed AI fluency across the org and keep it sharp as the tools change." }
+  ];
+
+  var quiz = document.getElementById('rcQuiz');
+  var hint = document.getElementById('rcHint');
+  var result = document.getElementById('rcResult');
+  var lastScore = null, lastBand = null, lastAnswers = null;
+
+  quiz.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var names = ['q1','q2','q3','q4','q5'], total = 0, answers = {};
+    for (var i = 0; i < names.length; i++) {
+      var sel = quiz.querySelector('input[name="' + names[i] + '"]:checked');
+      if (!sel) {
+        hint.textContent = 'Please answer all five questions to see your result.';
+        hint.classList.add('err');
+        return;
+      }
+      total += parseInt(sel.value, 10);
+      answers[names[i]] = sel.parentNode.textContent.trim();
+    }
+    hint.textContent = ''; hint.classList.remove('err');
+    var band = BANDS[0];
+    for (var b = 0; b < BANDS.length; b++) { if (total <= BANDS[b].max) { band = BANDS[b]; break; } }
+    lastScore = total; lastBand = band.name; lastAnswers = answers;
+
+    document.getElementById('rcBand').textContent = band.name;
+    document.getElementById('rcScore').textContent = 'Score ' + total + ' / 15';
+    document.getElementById('rcRec').textContent = band.rec;
+    result.classList.add('show');
+    setTimeout(function () { document.getElementById('rcTrackFill').style.width = (total / 15 * 100) + '%'; }, 60);
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  var lead = document.getElementById('rcLead');
+  var status = document.getElementById('rcStatus');
+  var leadBtn = document.getElementById('rcLeadBtn');
+  var leadLabel = lead.querySelector('.rc-leadlabel');
+
+  lead.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.className = 'rc-status'; status.textContent = '';
+    if (!lead.checkValidity()) { lead.reportValidity(); return; }
+    var fd = new FormData(lead);
+    var summary = 'AI Readiness Check — Band: ' + (lastBand || '-') + ' (score ' + (lastScore != null ? lastScore : '-') + '/15)\n';
+    if (lastAnswers) { for (var k in lastAnswers) { summary += '  ' + k.toUpperCase() + ': ' + lastAnswers[k] + '\n'; } }
+    var payload = {
+      name: fd.get('name'),
+      email: fd.get('email'),
+      company: fd.get('company'),
+      interest: 'AI Readiness Snapshot',
+      message: summary,
+      website: fd.get('website')
+    };
+    leadBtn.disabled = true; leadLabel.textContent = 'Sending…';
+    fetch(SUPABASE_FN_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) {
+        if (res.ok) {
+          lead.reset();
+          status.className = 'rc-status success';
+          status.textContent = 'Thanks — your snapshot request is in. We’ll be in touch shortly.';
+        } else {
+          status.className = 'rc-status error';
+          status.textContent = (data && data.error) || 'Something went wrong. Please try again.';
+        }
+      });
+    }).catch(function () {
+      status.className = 'rc-status error';
+      status.textContent = 'Network error. Please try again, or email hello@o1-labs.com.';
+    }).finally(function () {
+      leadBtn.disabled = false; leadLabel.textContent = 'Send me my snapshot';
+    });
+  });
+})();
+</script>
+</body>
+</html>
