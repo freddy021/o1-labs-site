@@ -113,7 +113,7 @@
           "name": "What AI workshops does o1 Labs offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Offerings include a two-day Generative AI Fundamentals workshop for teams new to AI and a four-week AI Product Strategy Sprint. An Executive AI Leadership Program for senior decision makers is currently in development."
+            "text": "Offerings include hands-on Applied AI Workshops — spanning AI fundamentals, AI for product management, and tool deep-dives across Gemini and Claude — plus a four-week AI Product Strategy Sprint. An Executive AI Leadership Program for senior decision makers is currently in development."
           }
         },
         {
@@ -129,7 +129,7 @@
           "name": "Does o1 Labs build its own products?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Alongside our services, o1 Labs is currently building an AI-native product in the health and wellness space. More details will be announced soon."
+            "text": "Yes. Alongside our services, o1 Labs is building its first AI-native product, in the health and wellness space. More details will be announced soon."
           }
         }
       ]
@@ -407,7 +407,7 @@ body {
 /* ===== PINNED SECTIONS ===== */
 .pinned-container {
   position: relative;
-  height: 300vh;
+  height: 240vh;
 }
 .pinned-viewport {
   position: sticky;
@@ -421,7 +421,7 @@ body {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.5s ease;
   pointer-events: none;
 }
 .section-slide.active { opacity: 1; pointer-events: auto; }
@@ -574,6 +574,23 @@ body {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   color: var(--white);
+}
+
+/* Continuous scroll-progress rail (right edge of pinned viewport) */
+.scroll-rail {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 3px;
+  background: rgba(255,255,255,0.10);
+  z-index: 6;
+}
+.scroll-rail-fill {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 0;
+  background: var(--chartreuse);
+  box-shadow: 0 0 12px rgba(212,225,87,0.5);
+  transition: height 0.12s linear;
 }
 
 /* Section progress dots */
@@ -818,6 +835,13 @@ body {
   letter-spacing: 1.5px;
   color: var(--charcoal-light);
   margin-top: 8px;
+  max-width: 220px;
+}
+.about-stat-detail {
+  display: inline-block;
+  margin-top: 5px;
+  opacity: 0.7;
+  letter-spacing: 1px;
 }
 
 /* Dark CTA for about section */
@@ -829,64 +853,66 @@ body {
 /* ===== STEALTH TEASE ===== */
 .stealth-tease {
   background: var(--cream);
-  padding: 0 44px 100px;
+  padding: 40px 44px 110px;
 }
 .stealth-inner {
-  max-width: 680px;
+  max-width: 1000px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 22px;
-  padding: 32px 36px;
+  gap: 48px;
+  padding: 48px 52px;
   border: 1px solid rgba(44,44,44,0.08);
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(212,225,87,0.06) 0%, rgba(242,239,234,0) 60%);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(212,225,87,0.10) 0%, rgba(242,239,234,0) 58%);
   transition: border-color 0.4s;
 }
 .stealth-tease:hover .stealth-inner {
   border-color: rgba(212,225,87,0.35);
 }
-.stealth-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--chartreuse);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.stealth-icon svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--charcoal);
-}
-.stealth-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
 .stealth-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   font-family: var(--sans);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   color: var(--charcoal-light);
+  margin-bottom: 16px;
+}
+.stealth-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--chartreuse);
+  box-shadow: 0 0 0 4px rgba(212,225,87,0.25);
 }
 .stealth-desc {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: 20px;
+  font-size: clamp(26px, 3vw, 34px);
   color: var(--charcoal);
-  line-height: 1.3;
+  line-height: 1.25;
+  margin-bottom: 26px;
 }
-.stealth-desc em {
-  font-style: italic;
+.stealth-desc em { font-style: italic; }
+.stealth-visual { display: flex; justify-content: center; }
+.stealth-visual img {
+  width: 100%;
+  max-width: 270px;
+  height: auto;
+  filter: drop-shadow(0 30px 50px rgba(20,20,20,0.18));
 }
-@media (max-width: 768px) {
-  .stealth-tease { padding: 0 24px 72px; }
-  .stealth-inner { flex-direction: column; text-align: center; padding: 28px 24px; }
+@media (max-width: 820px) {
+  .stealth-tease { padding: 16px 24px 80px; }
+  .stealth-inner { grid-template-columns: 1fr; text-align: center; gap: 32px; padding: 40px 28px; }
+  .stealth-label { justify-content: center; }
+  .stealth-visual { order: -1; }
+  .stealth-visual img { max-width: 220px; }
 }
 /* ===== CONTACT SECTION ===== */
 .contact {
@@ -1153,31 +1179,58 @@ body {
   .logos-marquee { -webkit-mask-image: none; mask-image: none; }
 }
 
-/* ===== FAQ ===== */
+/* ===== FAQ (accordion) ===== */
 .faq { background: var(--cream); padding: 0 44px 120px; }
 .faq-wrapper { max-width: 780px; margin: 0 auto; }
-.faq-item {
-  padding: 30px 0;
-  border-bottom: 1px solid rgba(44,44,44,0.08);
-}
+.faq-item { border-bottom: 1px solid rgba(44,44,44,0.08); }
 .faq-item:first-child { border-top: 1px solid rgba(44,44,44,0.08); }
 .faq-q {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
   font-family: var(--serif);
   font-weight: 400;
   font-size: 24px;
   color: var(--charcoal);
   line-height: 1.3;
-  margin-bottom: 12px;
+  transition: color 0.2s;
 }
+.faq-q:hover { color: var(--charcoal-light); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q:focus-visible { outline: 2px solid var(--chartreuse-dark); outline-offset: 4px; border-radius: 4px; }
+.faq-toggle { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+.faq-toggle::before, .faq-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 14px; height: 2px;
+  background: var(--charcoal);
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.faq-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq-item[open] .faq-toggle::after { transform: translate(-50%, -50%) rotate(0deg); }
 .faq-a {
   font-family: var(--sans);
   font-size: 14.5px;
   line-height: 1.8;
   color: var(--charcoal-light);
+  max-width: 680px;
+  margin-top: -6px;
+  padding-bottom: 28px;
+}
+.faq-item[open] .faq-a { animation: faqReveal 0.35s ease; }
+@keyframes faqReveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 768px) {
   .faq { padding: 0 24px 80px; }
-  .faq-q { font-size: 20px; }
+  .faq-q { font-size: 20px; padding: 22px 0; }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -1256,7 +1309,8 @@ body {
 <!-- PINNED SCROLL SECTIONS -->
 <div class="pinned-container" id="services">
   <div class="pinned-viewport">
-    <!-- Section 01: Education -->
+    <div class="scroll-rail"><div class="scroll-rail-fill" id="pinnedFill"></div></div>
+    <!-- Section 01: AI Education -->
     <div class="section-slide active" data-index="0">
       <div class="section-bg" role="img" aria-label="A team collaborating in a hands-on AI education workshop" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')"></div>
       <div class="section-content">
@@ -1265,7 +1319,7 @@ body {
             <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
           </span>
           <span class="section-pill-number">01</span>
-          <span class="section-pill-label">Education</span>
+          <span class="section-pill-label">AI Education</span>
         </div>
         <h2 class="section-title">AI workshops<br>for modern teams</h2>
         <p class="section-desc">Hands-on programs designed to demystify artificial intelligence and build practical skills across your organization, from executive briefings to technical deep-dives.</p>
@@ -1284,7 +1338,7 @@ body {
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           </span>
           <span class="section-pill-number">02</span>
-          <span class="section-pill-label">Consulting</span>
+          <span class="section-pill-label">AI Consulting</span>
         </div>
         <h2 class="section-title">Strategic AI<br><em>product</em> consulting</h2>
         <p class="section-desc">From discovery to deployment, we partner with product teams to identify AI opportunities, design intelligent features, and build roadmaps that deliver measurable value.</p>
@@ -1303,7 +1357,7 @@ body {
             <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
           </span>
           <span class="section-pill-number">03</span>
-          <span class="section-pill-label">Transformation</span>
+          <span class="section-pill-label">AI Transformation</span>
         </div>
         <h2 class="section-title">Enterprise learning<br>& <em>development</em></h2>
         <p class="section-desc">End-to-end L&D programs that embed AI fluency into your culture, from curriculum design to train-the-trainer certification and ongoing capability assessments.</p>
@@ -1336,10 +1390,10 @@ body {
       </div>
       <div class="service-cat-pill">
         <span class="service-cat-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z"/></svg></span>
-        <span class="service-cat-text">Education</span>
+        <span class="service-cat-text">AI Education</span>
       </div>
-      <h3 class="service-name">Generative AI<br>Fundamentals</h3>
-      <div class="service-teaser">Two-day immersive workshop for cross-functional teams new to AI.</div>
+      <h3 class="service-name">Applied AI<br>Workshops</h3>
+      <div class="service-teaser">Immersive, hands-on workshops — from AI fundamentals and AI for product management to tool deep-dives across Gemini and Claude.</div>
       <div class="service-swatches">
         <span class="swatch" style="background:#D4E157"></span>
         <span class="swatch" style="background:#2C2C2C"></span>
@@ -1358,7 +1412,7 @@ body {
       </div>
       <div class="service-cat-pill">
         <span class="service-cat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
-        <span class="service-cat-text">Consulting</span>
+        <span class="service-cat-text">AI Consulting</span>
       </div>
       <h3 class="service-name">AI Product<br>Strategy Sprint</h3>
       <div class="service-teaser">Four-week engagement to identify and validate your highest-impact AI opportunities.</div>
@@ -1380,7 +1434,7 @@ body {
       </div>
       <div class="service-cat-pill">
         <span class="service-cat-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></span>
-        <span class="service-cat-text">Transformation</span>
+        <span class="service-cat-text">AI Transformation</span>
       </div>
       <h3 class="service-name">Executive AI<br>Leadership Program</h3>
       <span class="service-status">In development</span>
@@ -1441,7 +1495,11 @@ body {
       <div class="about-stat-row">
         <div>
           <div class="about-stat-number">4</div>
-          <div class="about-stat-desc">Countries taught in<br>US · Bahrain · Oman · UAE</div>
+          <div class="about-stat-desc">Countries where we’ve run workshops<br><span class="about-stat-detail">US · Bahrain · Oman · UAE</span></div>
+        </div>
+        <div>
+          <div class="about-stat-number">6</div>
+          <div class="about-stat-desc">AI courses &amp; curricula taught or built<br><span class="about-stat-detail">Gemini, Gemini Gems &amp; the Claude Suite</span></div>
         </div>
       </div>
       <div class="about-cta">
@@ -1458,12 +1516,16 @@ body {
 <!-- STEALTH PRODUCT TEASE -->
 <section class="stealth-tease fade-in">
   <div class="stealth-inner">
-    <div class="stealth-icon">
-      <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-    </div>
     <div class="stealth-text">
       <span class="stealth-label">Coming Soon</span>
       <div class="stealth-desc">Currently building our first AI-native product in the <em>health & wellness</em> space. Stay tuned.</div>
+      <a href="#contact" class="explore-btn">
+        Get notified
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="stealth-visual">
+      <img src="/stealth-device.png" alt="Preview mockup of o1 Labs' upcoming AI health and wellness app on a phone" width="270" height="349" loading="lazy">
     </div>
   </div>
 </section>
@@ -1475,26 +1537,26 @@ body {
     <h2 class="contact-title" id="faq-title">Questions,<br>answered</h2>
   </div>
   <div class="faq-wrapper">
-    <div class="faq-item fade-in">
-      <h3 class="faq-q">What does o1 Labs do?</h3>
+    <details class="faq-item fade-in">
+      <summary class="faq-q">What does o1 Labs do?<span class="faq-toggle" aria-hidden="true"></span></summary>
       <p class="faq-a">o1 Labs is an AI education, consulting, and transformation firm. We help companies adopt artificial intelligence with confidence through hands-on workshops, strategic AI product consulting, and enterprise learning &amp; development programs.</p>
-    </div>
-    <div class="faq-item fade-in">
-      <h3 class="faq-q">Who are o1 Labs' services for?</h3>
+    </details>
+    <details class="faq-item fade-in">
+      <summary class="faq-q">Who are o1 Labs' services for?<span class="faq-toggle" aria-hidden="true"></span></summary>
       <p class="faq-a">We work with organizations of all sizes — from cross-functional teams new to AI through to C-suite and VP-level leaders. Our programs span beginner AI fundamentals through to leadership-level AI strategy.</p>
-    </div>
-    <div class="faq-item fade-in">
-      <h3 class="faq-q">What AI workshops does o1 Labs offer?</h3>
-      <p class="faq-a">Offerings include a two-day Generative AI Fundamentals workshop for teams new to AI and a four-week AI Product Strategy Sprint. An Executive AI Leadership Program for senior decision makers is currently in development.</p>
-    </div>
-    <div class="faq-item fade-in">
-      <h3 class="faq-q">How do I get started with o1 Labs?</h3>
+    </details>
+    <details class="faq-item fade-in">
+      <summary class="faq-q">What AI workshops does o1 Labs offer?<span class="faq-toggle" aria-hidden="true"></span></summary>
+      <p class="faq-a">Offerings include hands-on Applied AI Workshops — spanning AI fundamentals, AI for product management, and tool deep-dives across Gemini and Claude — plus a four-week AI Product Strategy Sprint. An Executive AI Leadership Program for senior decision makers is currently in development.</p>
+    </details>
+    <details class="faq-item fade-in">
+      <summary class="faq-q">How do I get started with o1 Labs?<span class="faq-toggle" aria-hidden="true"></span></summary>
       <p class="faq-a">Use the contact form on this site to tell us about your team and goals. We'll follow up to scope the right education, consulting, or transformation engagement for you.</p>
-    </div>
-    <div class="faq-item fade-in">
-      <h3 class="faq-q">Does o1 Labs build its own products?</h3>
-      <p class="faq-a">Yes. Alongside our services, o1 Labs is currently building an AI-native product in the health and wellness space. More details will be announced soon.</p>
-    </div>
+    </details>
+    <details class="faq-item fade-in">
+      <summary class="faq-q">Does o1 Labs build its own products?<span class="faq-toggle" aria-hidden="true"></span></summary>
+      <p class="faq-a">Yes. Alongside our services, o1 Labs is building its first AI-native product, in the health and wellness space. More details will be announced soon.</p>
+    </details>
   </div>
 </section>
 
@@ -1591,6 +1653,7 @@ function toggleMenu() {
 const pinnedContainer = document.querySelector('.pinned-container');
 const slides = document.querySelectorAll('.section-slide');
 const dots = document.querySelectorAll('.progress-dot');
+const pinnedFill = document.getElementById('pinnedFill');
 const mainNav = document.getElementById('mainNav');
 
 function updatePinnedSections() {
@@ -1598,13 +1661,13 @@ function updatePinnedSections() {
   const rect = pinnedContainer.getBoundingClientRect();
   const containerH = pinnedContainer.offsetHeight;
   const viewportH = window.innerHeight;
-  const scrolled = -rect.top;
   const scrollRange = containerH - viewportH;
-  if (scrolled < 0 || scrolled > scrollRange) return;
-  const progress = scrolled / scrollRange;
+  let progress = scrollRange > 0 ? (-rect.top) / scrollRange : 0;
+  progress = Math.max(0, Math.min(1, progress));
   const activeIndex = Math.min(Math.floor(progress * slides.length), slides.length - 1);
   slides.forEach((s, i) => s.classList.toggle('active', i === activeIndex));
   dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+  if (pinnedFill) pinnedFill.style.height = (progress * 100).toFixed(2) + '%';
 }
 
 // Nav appearance

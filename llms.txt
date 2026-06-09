@@ -12,9 +12,9 @@ o1 Labs operates at the intersection of education, product strategy, and organiz
 
 ## Featured Programs
 
-- **Generative AI Fundamentals** — Two-day immersive workshop for cross-functional teams new to AI.
+- **Applied AI Workshops** — Immersive, hands-on workshops spanning AI fundamentals, AI for product management, and tool deep-dives across Gemini and Claude.
 - **AI Product Strategy Sprint** — Four-week engagement to identify and validate your highest-impact AI opportunities.
-- **Executive AI Leadership Program** — Twelve-week certification designed for C-suite and VP-level decision makers.
+- **Executive AI Leadership Program** — In development: a certification for senior decision makers.
 
 ## Who we serve
 
@@ -22,7 +22,7 @@ Organizations of all sizes, from teams new to AI through to senior leadership. B
 
 ## Track record
 
-150+ workshops delivered · 40+ enterprise clients · 12 countries reached.
+Workshops delivered across 4 countries: the US, Bahrain, Oman, and the UAE. Worked with teams at CNBC, Raytheon Technologies, JPMorgan Chase, Univision, Uber, Bank of Montreal, Ila Bank, Early Riser, and General Assembly. AI courses and curricula taught or built across Gemini, Gemini Gems, and the Claude Suite.
 
 ## Stealth product
 
