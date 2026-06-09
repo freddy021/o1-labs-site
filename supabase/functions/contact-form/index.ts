@@ -27,6 +27,58 @@ function json(body: unknown, status: number, cors: Record<string, string>): Resp
   });
 }
 
+// Best-effort email notification via Resend. No-op unless RESEND_API_KEY and
+// RESEND_TO are configured as function secrets. Never throws to the caller.
+async function notify(fields: {
+  name: string;
+  email: string;
+  company: string | null;
+  interest: string | null;
+  message: string | null;
+}): Promise<void> {
+  const apiKey = Deno.env.get("RESEND_API_KEY");
+  const to = Deno.env.get("RESEND_TO");
+  if (!apiKey || !to) return; // not configured yet
+
+  const from = Deno.env.get("RESEND_FROM") ?? "o1 Labs <onboarding@resend.dev>";
+  const subject = `New o1 Labs inquiry — ${fields.name}` +
+    (fields.company ? ` (${fields.company})` : "");
+  const text = [
+    "New contact form submission from o1-labs.com:",
+    "",
+    `Name: ${fields.name}`,
+    `Email: ${fields.email}`,
+    `Company: ${fields.company ?? "—"}`,
+    `Interest: ${fields.interest ?? "—"}`,
+    "",
+    "Message:",
+    fields.message ?? "—",
+    "",
+  ].join("\n");
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: fields.email,
+        subject,
+        text,
+      }),
+    });
+    if (!res.ok) {
+      console.error("Resend notification failed:", res.status, await res.text());
+    }
+  } catch (e) {
+    console.error("Resend notification error:", e);
+  }
+}
+
 Deno.serve(async (req: Request) => {
   const origin = req.headers.get("origin");
   const cors = corsHeaders(origin);
@@ -86,6 +138,9 @@ Deno.serve(async (req: Request) => {
     console.error("contact_submissions insert error:", error.message);
     return json({ error: "Something went wrong saving your message. Please try again." }, 500, cors);
   }
+
+  // Fire the notification but don't let it affect the user's response.
+  await notify({ name, email, company, interest, message });
 
   return json({ ok: true }, 200, cors);
 });
