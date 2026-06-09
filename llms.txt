@@ -28,6 +28,10 @@ Workshops delivered across 4 countries: the US, Bahrain, Oman, and the UAE. Work
 
 Beyond services, o1 Labs is currently building an AI-native product in the health & wellness space. Details to be announced.
 
+## Blog
+
+o1 Labs publishes a weekly AI insights blog at https://o1-labs.com/blog/ — practical perspective on agentic AI, enterprise AI adoption, model selection (Gemini, Claude), and AI education. Every article can also be listened to.
+
 ## Contact
 
 Reach o1 Labs through the contact form at https://o1-labs.com/#contact or by email at hello@o1-labs.com.

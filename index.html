@@ -1179,6 +1179,32 @@ body {
   .logos-marquee { -webkit-mask-image: none; mask-image: none; }
 }
 
+/* ===== INSIGHTS / BLOG TEASER ===== */
+.insights { background: var(--cream); padding: 40px 44px 110px; }
+.insights-header {
+  max-width: 1100px; margin: 0 auto 44px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.insights-label { font-family: var(--sans); font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 3.5px; color: var(--charcoal-light); margin-bottom: 16px; }
+.insights-title { font-family: var(--serif); font-weight: 300; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; color: var(--charcoal); }
+.insights-viewall { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--charcoal); text-decoration: none; white-space: nowrap; transition: gap 0.3s; }
+.insights-viewall:hover { gap: 12px; }
+.insights-viewall svg { width: 14px; height: 14px; fill: none; stroke: var(--charcoal); stroke-width: 2; }
+.insights-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (min-width: 900px) { .insights-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 600px) { .insights-grid { grid-template-columns: 1fr; } }
+.insight-card {
+  display: flex; flex-direction: column; text-decoration: none;
+  border: 1px solid rgba(44,44,44,0.10); border-radius: 14px;
+  padding: 24px 22px; min-height: 220px;
+  background: linear-gradient(135deg, rgba(212,225,87,0.05) 0%, rgba(242,239,234,0) 60%);
+  transition: border-color 0.35s, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.insight-card:hover { border-color: rgba(212,225,87,0.45); transform: translateY(-2px); }
+.insight-cat { align-self: flex-start; font-family: var(--sans); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--charcoal); background: var(--chartreuse); border-radius: 30px; padding: 4px 11px; margin-bottom: 16px; }
+.insight-title { font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.22; color: var(--charcoal); margin-bottom: 10px; }
+.insight-date { margin-top: auto; font-family: var(--sans); font-size: 10px; letter-spacing: 0.5px; color: var(--charcoal-light); text-transform: uppercase; }
+
 /* ===== FAQ (accordion) ===== */
 .faq { background: var(--cream); padding: 0 44px 120px; }
 .faq-wrapper { max-width: 780px; margin: 0 auto; }
@@ -1266,6 +1292,7 @@ body {
 <nav class="nav over-dark" id="mainNav">
   <a href="#" class="nav-logo">o1 Labs</a>
   <div class="nav-right">
+    <a href="/blog/" class="nav-lang">Blog</a>
     <a href="#contact" class="nav-lang">Contact</a>
     <div class="nav-icons">
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -1281,6 +1308,7 @@ body {
   <div class="menu-nav-links">
     <a href="#services" class="menu-nav-link" onclick="toggleMenu()">Services</a>
     <a href="#about" class="menu-nav-link" onclick="toggleMenu()">About</a>
+    <a href="/blog/" class="menu-nav-link">Blog</a>
     <a href="#faq" class="menu-nav-link" onclick="toggleMenu()">FAQ</a>
     <a href="#contact" class="menu-nav-link" onclick="toggleMenu()">Contact</a>
   </div>
@@ -1379,7 +1407,7 @@ body {
 <!-- SERVICES LISTING (Floema product listing style) -->
 <section class="services-listing">
   <div class="services-listing-header fade-in">
-    <h2 class="listing-label">Recent Offerings</h2>
+    <h2 class="listing-label">Current Offerings</h2>
     <span class="listing-arrow">&darr;</span>
   </div>
   <div class="services-grid">
@@ -1494,12 +1522,12 @@ body {
       <p>o1 Labs brings together expertise from leading technology companies, research institutions, and design studios. We don't just advise — we build alongside you, ensuring every recommendation is grounded in practical reality.</p>
       <div class="about-stat-row">
         <div>
-          <div class="about-stat-number">4</div>
-          <div class="about-stat-desc">Countries where we’ve run workshops<br><span class="about-stat-detail">US · Bahrain · Oman · UAE</span></div>
+          <div class="about-stat-number">5+</div>
+          <div class="about-stat-desc">Years teaching AI &amp; technology<br><span class="about-stat-detail">with General Assembly</span></div>
         </div>
         <div>
-          <div class="about-stat-number">6</div>
-          <div class="about-stat-desc">AI courses &amp; curricula taught or built<br><span class="about-stat-detail">Gemini, Gemini Gems &amp; the Claude Suite</span></div>
+          <div class="about-stat-number">4</div>
+          <div class="about-stat-desc">Countries where we’ve run workshops<br><span class="about-stat-detail">US · Bahrain · Oman · UAE</span></div>
         </div>
       </div>
       <div class="about-cta">
@@ -1527,6 +1555,41 @@ body {
     <div class="stealth-visual">
       <img src="/stealth-device.png" alt="Preview mockup of o1 Labs' upcoming AI health and wellness app on a phone" width="270" height="349" loading="lazy">
     </div>
+  </div>
+</section>
+
+<!-- INSIGHTS / BLOG TEASER -->
+<section class="insights" id="insights" aria-labelledby="insights-title">
+  <div class="insights-header">
+    <div>
+      <div class="insights-label">From the blog</div>
+      <h2 class="insights-title" id="insights-title">Insights</h2>
+    </div>
+    <a href="/blog/" class="insights-viewall">View all articles
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+  <div class="insights-grid">
+    <a class="insight-card fade-in" href="/blog/agentic-ai-explained-for-teams.html">
+      <span class="insight-cat">Perspective</span>
+      <div class="insight-title">Agentic AI, explained for teams that ship</div>
+      <span class="insight-date">June 8, 2026 · 5 min</span>
+    </a>
+    <a class="insight-card fade-in" href="/blog/why-enterprise-ai-pilots-stall.html">
+      <span class="insight-cat">Adoption</span>
+      <div class="insight-title">Why most enterprise AI pilots stall</div>
+      <span class="insight-date">June 1, 2026 · 4 min</span>
+    </a>
+    <a class="insight-card fade-in" href="/blog/gemini-or-claude-how-to-choose.html">
+      <span class="insight-cat">Tools</span>
+      <div class="insight-title">Gemini or Claude? A practical way to choose</div>
+      <span class="insight-date">May 25, 2026 · 5 min</span>
+    </a>
+    <a class="insight-card fade-in" href="/blog/ai-workshops-that-stick.html">
+      <span class="insight-cat">Education</span>
+      <div class="insight-title">AI workshops your team actually remembers</div>
+      <span class="insight-date">May 18, 2026 · 4 min</span>
+    </a>
   </div>
 </section>
 
@@ -1627,6 +1690,7 @@ body {
     <nav class="footer-nav">
       <a href="#services" class="footer-link">Services</a>
       <a href="#about" class="footer-link">About</a>
+      <a href="/blog/" class="footer-link">Blog</a>
       <a href="#contact" class="footer-link">Contact</a>
       <a href="#" class="footer-link">LinkedIn</a>
     </nav>
