@@ -19,7 +19,7 @@
 <meta property="og:title" content="o1 Labs — AI Education, Consulting & Transformation">
 <meta property="og:description" content="o1 Labs helps companies adopt AI with confidence — hands-on AI education workshops, strategic product consulting, and enterprise learning & development programs.">
 <meta property="og:url" content="https://o1-labs.com/">
-<meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&q=80">
+<meta property="og:image" content="https://o1-labs.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="o1 Labs — shaping the future of intelligent work">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="o1 Labs — AI Education, Consulting & Transformation">
 <meta name="twitter:description" content="o1 Labs helps companies adopt AI with confidence — AI education, product consulting, and enterprise L&D.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&q=80">
+<meta name="twitter:image" content="https://o1-labs.com/og.png">
 <meta name="twitter:image:alt" content="o1 Labs — shaping the future of intelligent work">
 
 <!-- ===== FAVICON ===== -->
@@ -1072,6 +1072,23 @@ body {
   stroke: var(--white);
   stroke-width: 2;
 }
+.form-submit-btn[disabled] { opacity: 0.55; cursor: default; }
+
+/* Honeypot field (kept in DOM, hidden from people) */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Submit status message */
+.form-status {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  margin-top: 28px;
+  min-height: 18px;
+}
+.form-status.success { color: #5a7d00; }
+.form-status.error { color: #b3261e; }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -1520,25 +1537,25 @@ body {
       <div class="contact-label">Get in Touch</div>
       <h2 class="contact-title">Let's start a<br>conversation</h2>
     </div>
-    <form class="contact-form fade-in" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+    <form class="contact-form fade-in" id="contactForm" novalidate>
       <div class="form-row double">
         <div class="form-field">
-          <label class="form-label">Your Name</label>
-          <input type="text" class="form-input" placeholder="Full name" required>
+          <label class="form-label" for="cf-name">Your Name</label>
+          <input type="text" id="cf-name" name="name" class="form-input" placeholder="Full name" autocomplete="name" required>
         </div>
         <div class="form-field">
-          <label class="form-label">Email Address</label>
-          <input type="email" class="form-input" placeholder="name@company.com" required>
+          <label class="form-label" for="cf-email">Email Address</label>
+          <input type="email" id="cf-email" name="email" class="form-input" placeholder="name@company.com" autocomplete="email" required>
         </div>
       </div>
       <div class="form-row double">
         <div class="form-field">
-          <label class="form-label">Company</label>
-          <input type="text" class="form-input" placeholder="Company name">
+          <label class="form-label" for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" class="form-input" placeholder="Company name" autocomplete="organization">
         </div>
         <div class="form-field">
-          <label class="form-label">Interest</label>
-          <select class="form-select" required>
+          <label class="form-label" for="cf-interest">Interest</label>
+          <select id="cf-interest" name="interest" class="form-select" required>
             <option value="" disabled selected>Select an area</option>
             <option>AI Workshops & Education</option>
             <option>Product Consulting</option>
@@ -1550,14 +1567,21 @@ body {
       </div>
       <div class="form-row">
         <div class="form-field">
-          <label class="form-label">Message</label>
-          <textarea class="form-textarea" placeholder="Tell us about your project or goals..." rows="3"></textarea>
+          <label class="form-label" for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" class="form-textarea" placeholder="Tell us about your project or goals..." rows="3"></textarea>
         </div>
       </div>
+      <!-- Honeypot: hidden from people; bots that fill it are silently dropped -->
+      <div class="hp" aria-hidden="true">
+        <label>Leave this field empty
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </label>
+      </div>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
       <div class="form-submit-row">
-        <button type="submit" class="form-submit-btn">
+        <button type="submit" class="form-submit-btn" id="formSubmitBtn">
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          Request Information
+          <span class="form-submit-label">Request Information</span>
         </button>
       </div>
     </form>
@@ -1660,6 +1684,72 @@ dots.forEach(dot => {
     window.scrollTo({ top: targetScroll, behavior: 'smooth' });
   });
 });
+
+// ===== Contact form -> Supabase Edge Function =====
+// Per architecture: the browser never calls a third-party API directly.
+// It calls our Supabase Edge Function, which writes to the database.
+// The anon key below is a public, client-safe key (RLS blocks direct table access).
+const SUPABASE_FN_URL = 'https://njkynmkrvmldujrvbfoi.supabase.co/functions/v1/contact-form';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5qa3lubWtydm1sZHVqcnZiZm9pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTk2MTMsImV4cCI6MjA5NjU5NTYxM30.Oq8-EnecQjezqoJv-6dn6Gz1D_eJZ8i87GBOSdJHs3g';
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('formSubmitBtn');
+  const submitLabel = submitBtn.querySelector('.form-submit-label');
+  const defaultLabel = submitLabel.textContent;
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    const fd = new FormData(contactForm);
+    const payload = {
+      name: fd.get('name'),
+      email: fd.get('email'),
+      company: fd.get('company'),
+      interest: fd.get('interest'),
+      message: fd.get('message'),
+      website: fd.get('website'), // honeypot
+    };
+
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(SUPABASE_FN_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        contactForm.reset();
+        statusEl.className = 'form-status success';
+        statusEl.textContent = 'Thank you — we’ll be in touch shortly.';
+      } else {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = data.error || 'Something went wrong. Please try again.';
+      }
+    } catch (err) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Network error. Please try again, or email hello@o1-labs.com.';
+    } finally {
+      submitBtn.disabled = false;
+      submitLabel.textContent = defaultLabel;
+    }
+  });
+}
 </script>
 
 </body>
