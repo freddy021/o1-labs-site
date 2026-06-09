@@ -105,7 +105,7 @@
           "name": "Who are o1 Labs' services for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We work with organizations of all sizes — from cross-functional teams new to AI through to C-suite and VP-level leaders. Our programs span beginner AI fundamentals to executive AI leadership certification."
+            "text": "We work with organizations of all sizes — from cross-functional teams new to AI through to C-suite and VP-level leaders. Our programs span beginner AI fundamentals through to leadership-level AI strategy."
           }
         },
         {
@@ -113,7 +113,7 @@
           "name": "What AI workshops does o1 Labs offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Offerings include a two-day Generative AI Fundamentals workshop for teams new to AI, a four-week AI Product Strategy Sprint, and a twelve-week Executive AI Leadership Program for senior decision makers."
+            "text": "Offerings include a two-day Generative AI Fundamentals workshop for teams new to AI and a four-week AI Product Strategy Sprint. An Executive AI Leadership Program for senior decision makers is currently in development."
           }
         },
         {
@@ -1093,6 +1093,39 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* "In development" tag on a service card */
+.service-status {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--charcoal-light);
+  border: 1px solid rgba(44,44,44,0.2);
+  border-radius: 30px;
+  padding: 3px 11px;
+  margin-bottom: 12px;
+}
+
+/* About: "worked with" brand strip */
+.about-brands { margin-top: 30px; }
+.about-brands-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--charcoal-light);
+  margin-bottom: 12px;
+}
+.about-brands-list {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--charcoal);
+}
+
 /* ===== FAQ ===== */
 .faq { background: var(--cream); padding: 0 44px 120px; }
 .faq-wrapper { max-width: 780px; margin: 0 auto; }
@@ -1327,14 +1360,15 @@ body {
         <span class="service-cat-text">Transformation</span>
       </div>
       <h3 class="service-name">Executive AI<br>Leadership Program</h3>
-      <div class="service-teaser">Twelve-week certification designed for C-suite and VP-level decision makers.</div>
+      <span class="service-status">In development</span>
+      <div class="service-teaser">A forthcoming certification for senior decision makers. Register your interest and we’ll keep you posted.</div>
       <div class="service-swatches">
         <span class="swatch" style="background:#2C2C2C"></span>
         <span class="swatch" style="background:#EDE8E2"></span>
         <span class="swatch" style="background:#D4E157"></span>
       </div>
       <a href="#contact" class="explore-btn">
-        Explore
+        Register interest
         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -1355,17 +1389,13 @@ body {
       <p>o1 Labs brings together expertise from leading technology companies, research institutions, and design studios. We don't just advise — we build alongside you, ensuring every recommendation is grounded in practical reality.</p>
       <div class="about-stat-row">
         <div>
-          <div class="about-stat-number">150+</div>
-          <div class="about-stat-desc">Workshops delivered</div>
+          <div class="about-stat-number">4</div>
+          <div class="about-stat-desc">Countries taught in<br>US · Bahrain · Oman · UAE</div>
         </div>
-        <div>
-          <div class="about-stat-number">40+</div>
-          <div class="about-stat-desc">Enterprise clients</div>
-        </div>
-        <div>
-          <div class="about-stat-number">12</div>
-          <div class="about-stat-desc">Countries reached</div>
-        </div>
+      </div>
+      <div class="about-brands">
+        <div class="about-brands-label">Worked with teams at</div>
+        <div class="about-brands-list">Univision · CNBC · Raytheon Technologies · General Assembly</div>
       </div>
       <div class="about-cta">
         <a href="#contact" class="cta-dark">
@@ -1404,11 +1434,11 @@ body {
     </div>
     <div class="faq-item fade-in">
       <h3 class="faq-q">Who are o1 Labs' services for?</h3>
-      <p class="faq-a">We work with organizations of all sizes — from cross-functional teams new to AI through to C-suite and VP-level leaders. Our programs span beginner AI fundamentals to executive AI leadership certification.</p>
+      <p class="faq-a">We work with organizations of all sizes — from cross-functional teams new to AI through to C-suite and VP-level leaders. Our programs span beginner AI fundamentals through to leadership-level AI strategy.</p>
     </div>
     <div class="faq-item fade-in">
       <h3 class="faq-q">What AI workshops does o1 Labs offer?</h3>
-      <p class="faq-a">Offerings include a two-day Generative AI Fundamentals workshop for teams new to AI, a four-week AI Product Strategy Sprint, and a twelve-week Executive AI Leadership Program for senior decision makers.</p>
+      <p class="faq-a">Offerings include a two-day Generative AI Fundamentals workshop for teams new to AI and a four-week AI Product Strategy Sprint. An Executive AI Leadership Program for senior decision makers is currently in development.</p>
     </div>
     <div class="faq-item fade-in">
       <h3 class="faq-q">How do I get started with o1 Labs?</h3>
