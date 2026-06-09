@@ -176,20 +176,28 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 22px 36px;
+  padding: 18px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.4s, backdrop-filter 0.4s;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s, box-shadow 0.4s, padding 0.4s;
 }
+/* Liquid-glass header: dark translucent pane over the hero */
 .nav.over-dark {
-  mix-blend-mode: difference;
+  background: rgba(28,28,28,0.28);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border-bottom-color: rgba(255,255,255,0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 8px 30px rgba(0,0,0,0.18);
 }
+/* Liquid-glass header: light frosted pane over the cream sections */
 .nav.over-light {
-  mix-blend-mode: normal;
-  background: rgba(242,239,234,0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(242,239,234,0.70);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border-bottom-color: rgba(44,44,44,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 30px rgba(44,44,44,0.06);
 }
 
 .nav-logo {
@@ -272,26 +280,8 @@ body {
 }
 .menu-overlay.active { transform: translateY(0); }
 
-.menu-search {
-  width: 100%;
-  padding: 16px 0;
-  border: none;
-  border-bottom: 1px solid rgba(44,44,44,0.15);
-  background: transparent;
-  font-family: var(--sans);
-  font-size: 14px;
-  color: var(--charcoal);
-  outline: none;
-  letter-spacing: 0.5px;
-  margin-bottom: 48px;
-}
-.menu-search::placeholder {
-  color: rgba(44,44,44,0.35);
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-size: 11px;
-}
 .menu-nav-links {
+  padding-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1108,22 +1098,59 @@ body {
   margin-bottom: 12px;
 }
 
-/* About: "worked with" brand strip */
-.about-brands { margin-top: 30px; }
-.about-brands-label {
+/* Worked-with logo marquee */
+.logos {
+  background: var(--cream);
+  padding: 72px 0 28px;
+  overflow: hidden;
+}
+.logos-label {
+  text-align: center;
   font-family: var(--sans);
   font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1.8px;
+  letter-spacing: 3px;
   color: var(--charcoal-light);
-  margin-bottom: 12px;
+  margin-bottom: 40px;
 }
-.about-brands-list {
+.logos-marquee {
+  position: relative;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content;
+  animation: logoScroll 40s linear infinite;
+}
+.logos-marquee:hover .logos-track { animation-play-state: paused; }
+.logo-item {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: 21px;
-  line-height: 1.45;
+  font-size: 27px;
+  line-height: 1;
   color: var(--charcoal);
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.logo-item:hover { opacity: 1; }
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+  .logos { padding: 56px 0 20px; }
+  .logo-item { font-size: 21px; }
+  .logos-track { gap: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logos-track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+  .logos-marquee { -webkit-mask-image: none; mask-image: none; }
 }
 
 /* ===== FAQ ===== */
@@ -1188,9 +1215,6 @@ body {
   <div class="nav-right">
     <a href="#contact" class="nav-lang">Contact</a>
     <div class="nav-icons">
-      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
@@ -1201,7 +1225,6 @@ body {
 
 <!-- MENU OVERLAY -->
 <div class="menu-overlay" id="menuOverlay">
-  <input type="text" class="menu-search" placeholder="Search...">
   <div class="menu-nav-links">
     <a href="#services" class="menu-nav-link" onclick="toggleMenu()">Services</a>
     <a href="#about" class="menu-nav-link" onclick="toggleMenu()">About</a>
@@ -1375,6 +1398,34 @@ body {
   </div>
 </section>
 
+<!-- WORKED WITH (logo marquee) -->
+<section class="logos" aria-label="Organizations o1 Labs has worked with">
+  <div class="logos-label">Worked with teams at</div>
+  <div class="logos-marquee">
+    <div class="logos-track">
+      <span class="logo-item">CNBC</span>
+      <span class="logo-item">Raytheon Technologies</span>
+      <span class="logo-item">JPMorgan Chase</span>
+      <span class="logo-item">Univision</span>
+      <span class="logo-item">Uber</span>
+      <span class="logo-item">Bank of Montreal</span>
+      <span class="logo-item">Ila Bank</span>
+      <span class="logo-item">Early Riser</span>
+      <span class="logo-item">General Assembly</span>
+      <!-- duplicate set for a seamless loop -->
+      <span class="logo-item" aria-hidden="true">CNBC</span>
+      <span class="logo-item" aria-hidden="true">Raytheon Technologies</span>
+      <span class="logo-item" aria-hidden="true">JPMorgan Chase</span>
+      <span class="logo-item" aria-hidden="true">Univision</span>
+      <span class="logo-item" aria-hidden="true">Uber</span>
+      <span class="logo-item" aria-hidden="true">Bank of Montreal</span>
+      <span class="logo-item" aria-hidden="true">Ila Bank</span>
+      <span class="logo-item" aria-hidden="true">Early Riser</span>
+      <span class="logo-item" aria-hidden="true">General Assembly</span>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-header fade-in">
@@ -1392,10 +1443,6 @@ body {
           <div class="about-stat-number">4</div>
           <div class="about-stat-desc">Countries taught in<br>US · Bahrain · Oman · UAE</div>
         </div>
-      </div>
-      <div class="about-brands">
-        <div class="about-brands-label">Worked with teams at</div>
-        <div class="about-brands-list">Univision · CNBC · Raytheon Technologies · General Assembly</div>
       </div>
       <div class="about-cta">
         <a href="#contact" class="cta-dark">
