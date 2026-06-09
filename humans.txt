@@ -1,0 +1,17 @@
+/* TEAM */
+
+  Company: o1 Labs
+  Site: https://o1-labs.com
+  Contact: hello [at] o1-labs.com
+
+/* WHAT WE DO */
+
+  AI education, consulting, and transformation.
+  Shaping the future of intelligent work.
+
+/* SITE */
+
+  Last update: 2026/06/09
+  Language: English
+  Standards: HTML5, CSS3
+  Components: Cormorant Garamond, DM Sans
