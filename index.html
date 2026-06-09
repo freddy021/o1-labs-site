@@ -586,59 +586,6 @@ body {
   color: var(--white);
 }
 
-/* Floating catalogue card */
-.floating-card {
-  position: absolute;
-  top: 50%;
-  right: 44px;
-  transform: translateY(-50%);
-  z-index: 3;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 28px 24px;
-  width: 210px;
-  display: none;
-}
-@media (min-width: 960px) { .floating-card { display: block; } }
-
-.floating-card-title {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: 19px;
-  color: var(--white);
-  margin-bottom: 6px;
-  line-height: 1.2;
-}
-.floating-card-sub {
-  font-family: var(--sans);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 22px;
-}
-.floating-card-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: var(--chartreuse);
-  border-radius: 30px;
-  text-decoration: none;
-  font-family: var(--sans);
-  font-size: 9px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--charcoal);
-  transition: background 0.3s;
-}
-.floating-card-btn:hover { background: var(--chartreuse-dark); }
-.floating-card-btn svg { width: 10px; height: 10px; }
-
 /* Section progress dots */
 .section-progress {
   position: absolute;
@@ -1146,34 +1093,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ===== FLOATING CHARTREUSE BUTTON ===== */
-.floating-btn {
-  position: fixed;
-  bottom: 28px;
-  left: 28px;
-  z-index: 90;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: var(--chartreuse);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 24px rgba(212,225,87,0.3);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
-}
-.floating-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 32px rgba(212,225,87,0.5);
-}
-.floating-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--charcoal);
-}
-
 /* ===== FAQ ===== */
 .faq { background: var(--cream); padding: 0 44px 120px; }
 .faq-wrapper { max-width: 780px; margin: 0 auto; }
@@ -1213,7 +1132,6 @@ body {
   .footer { padding: 36px 24px; }
   .menu-overlay { padding: 100px 28px 28px; }
   .menu-nav-link { font-size: 34px; }
-  .floating-btn { width: 46px; height: 46px; bottom: 20px; left: 20px; }
 }
 
 /* ===== FADE-IN ANIMATION ===== */
