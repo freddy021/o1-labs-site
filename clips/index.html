@@ -219,6 +219,9 @@
   @media (max-width:768px){ .nav{padding:16px 22px} .menu-overlay{padding:100px 28px 28px}
        .menu-nav-link{font-size:34px} }
 
+  /* anchors must clear the fixed nav + sticky crumb */
+  section[id],header[id],div[id]{scroll-margin-top:118px}
+
   /* the crumb sits directly under the fixed nav */
   body{padding-top:60px}
   .crumb{position:sticky;top:60px;z-index:60;border-bottom:var(--rule);background:var(--paper-2);
