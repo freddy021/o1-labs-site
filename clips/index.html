@@ -227,6 +227,48 @@
   .crumb{position:sticky;top:60px;z-index:60;border-bottom:var(--rule);background:var(--paper-2);
          padding:11px 0;font-size:14px}
   @media (max-width:768px){ body{padding-top:56px} .crumb{top:56px} }
+
+  /* why it matters */
+  .why{background:var(--paper-2)}
+  .whygrid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:var(--rule)}
+  .whycard{padding:28px 24px 28px 0;border-right:1px solid var(--line)}
+  .whycard:last-child{border-right:0;padding-right:0}
+  .whycard:not(:first-child){padding-left:24px}
+  .whynum{font-family:Fraunces,serif;font-size:52px;font-weight:600;line-height:1;
+          letter-spacing:-.03em;display:block;margin-bottom:12px}
+  .whycard h3{font-size:16px;margin-bottom:8px}
+  .whycard p{font-size:14.5px;color:var(--ink-soft)}
+  .whycard cite{display:block;margin-top:12px;font-style:normal;font-size:12px;
+                color:var(--ink-soft);opacity:.85;line-height:1.45}
+  .whycard cite a{color:inherit}
+  .whyread{margin-top:38px;padding:22px 24px;border:var(--rule);background:var(--paper);
+           max-width:900px}
+  .whyread h3{font-size:16px;margin-bottom:10px}
+  .whyread p{font-size:15px;color:var(--ink-soft);margin-bottom:10px}
+  .whyread p:last-child{margin-bottom:0}
+  .srcline{margin-top:26px;font-size:12.5px;color:var(--ink-soft);line-height:1.7;max-width:900px}
+  .srcline a{color:inherit}
+  @media(max-width:900px){ .whygrid{grid-template-columns:1fr}
+    .whycard{border-right:0;border-bottom:1px solid var(--line);padding:24px 0}
+    .whycard:not(:first-child){padding-left:0} }
+
+  .exframe .expost{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+                   transition:opacity .45s ease}
+  .exframe.playing .expost{opacity:0}
+  .exframe .exmount,.exframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+                                    opacity:0;transition:opacity .45s ease;z-index:2}
+  .exframe.playing .exmount,.exframe.playing iframe{opacity:1}
+  .exframe .expost{z-index:1}
+  .exframe .exopen{position:absolute;inset:0;z-index:3}
+  .exframe .exopen:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+       width:54px;height:38px;background:rgba(20,20,15,.82);border-radius:9px;transition:opacity .3s,background .2s}
+  .exframe .exopen:before{content:"";position:absolute;left:50%;top:50%;z-index:1;
+       transform:translate(-50%,-50%) translateX(3px);border-left:15px solid #fff;
+       border-top:8px solid transparent;border-bottom:8px solid transparent;transition:opacity .3s}
+  .exframe.playing .exopen:after,.exframe.playing .exopen:before{opacity:0}
+  .exframe.playing:hover .exopen:after,.exframe.playing:hover .exopen:before{opacity:1}
+  .exframe .exopen:hover:after{background:var(--signal)}
+  .exframe .exopen:hover:before{border-left-color:var(--ink)}
 </style>
 </head>
 <body>
@@ -323,32 +365,73 @@
 
 <div class="exgrid">
       <figure class="ex">
-        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dO473tzL77Q?rel=0&amp;modestbranding=1" title="The Best Mindset for Accountability" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="exframe" data-vid="dO473tzL77Q"><img class="expost" src="https://i.ytimg.com/vi/dO473tzL77Q/hq720.jpg" alt="" loading="lazy"><div class="exmount"></div><a class="exopen" href="https://www.youtube.com/shorts/dO473tzL77Q" target="_blank" rel="noopener" aria-label="Watch on YouTube"></a></div>
         <figcaption><span class="exchan">Simon Sinek</span><span class="extitle">The Best Mindset for Accountability</span><span class="exdur">51s</span></figcaption>
       </figure>
       <figure class="ex">
-        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/zaQxeAqz8uw?rel=0&amp;modestbranding=1" title="High-Performing Teams Get and Give More Feedback" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="exframe" data-vid="zaQxeAqz8uw"><img class="expost" src="https://i.ytimg.com/vi/zaQxeAqz8uw/hq720.jpg" alt="" loading="lazy"><div class="exmount"></div><a class="exopen" href="https://www.youtube.com/shorts/zaQxeAqz8uw" target="_blank" rel="noopener" aria-label="Watch on YouTube"></a></div>
         <figcaption><span class="exchan">Harvard Business Review</span><span class="extitle">High-Performing Teams Get and Give More Feedback</span><span class="exdur">68s</span></figcaption>
       </figure>
       <figure class="ex">
-        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/iy-_aaqC1UE?rel=0&amp;modestbranding=1" title="Make It Understandable, But Don't Dumb It Down" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="exframe" data-vid="iy-_aaqC1UE"><img class="expost" src="https://i.ytimg.com/vi/iy-_aaqC1UE/hq720.jpg" alt="" loading="lazy"><div class="exmount"></div><a class="exopen" href="https://www.youtube.com/shorts/iy-_aaqC1UE" target="_blank" rel="noopener" aria-label="Watch on YouTube"></a></div>
         <figcaption><span class="exchan">Think Fast Talk Smart, Stanford GSB</span><span class="extitle">Make It Understandable, But Don't Dumb It Down</span><span class="exdur">40s</span></figcaption>
       </figure>
       <figure class="ex">
-        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/kaFiNLiIPpQ?rel=0&amp;modestbranding=1" title="Anthropic's co-founder on using Claude effectively" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="exframe" data-vid="kaFiNLiIPpQ"><img class="expost" src="https://i.ytimg.com/vi/kaFiNLiIPpQ/hq720.jpg" alt="" loading="lazy"><div class="exmount"></div><a class="exopen" href="https://www.youtube.com/shorts/kaFiNLiIPpQ" target="_blank" rel="noopener" aria-label="Watch on YouTube"></a></div>
         <figcaption><span class="exchan">Lenny's Podcast</span><span class="extitle">Anthropic's co-founder on using Claude effectively</span><span class="exdur">61s</span></figcaption>
       </figure>
       <figure class="ex">
-        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/aU7IqlWBMbQ?rel=0&amp;modestbranding=1" title="Embrace AI Without Eroding Trust" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="exframe" data-vid="aU7IqlWBMbQ"><img class="expost" src="https://i.ytimg.com/vi/aU7IqlWBMbQ/hq720.jpg" alt="" loading="lazy"><div class="exmount"></div><a class="exopen" href="https://www.youtube.com/shorts/aU7IqlWBMbQ" target="_blank" rel="noopener" aria-label="Watch on YouTube"></a></div>
         <figcaption><span class="exchan">Harvard Business Review</span><span class="extitle">Embrace AI Without Eroding Trust</span><span class="exdur">41s</span></figcaption>
       </figure>
       <figure class="ex">
-        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/W-RlFK0psvM?rel=0&amp;modestbranding=1" title="The Best Leaders Ask Questions" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="exframe" data-vid="W-RlFK0psvM"><img class="expost" src="https://i.ytimg.com/vi/W-RlFK0psvM/hq720.jpg" alt="" loading="lazy"><div class="exmount"></div><a class="exopen" href="https://www.youtube.com/shorts/W-RlFK0psvM" target="_blank" rel="noopener" aria-label="Watch on YouTube"></a></div>
         <figcaption><span class="exchan">Think Fast Talk Smart, Stanford GSB</span><span class="extitle">The Best Leaders Ask Questions</span><span class="exdur">34s</span></figcaption>
       </figure>
     </div>
 
     <p class="exnote2">Those are public clips from other channels, shown so you can see the format. What they have in common, and what you are actually buying, is that someone read a 60 minute transcript and decided which 40 seconds could stand alone. The editing is the cheap part.</p>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <h2>Why this is worth paying for</h2>
+    <p class="lede">Not because video is magic. Because of when buyers actually decide, and what they reward while they are deciding.</p>
+
+    <div class="whygrid">
+      <div class="whycard">
+        <span class="whynum">95%</span>
+        <h3>The shortlist forms before the search</h3>
+        <p>In 95% of closed deals, the winning vendor was already on the buyer's Day One list, before any contact with a salesperson. Being findable later is not the same as being remembered early.</p>
+        <cite>6sense, 2025 B2B Buyer Experience Report. Around 4,000 buyer responses, 49% VP level or above.</cite>
+      </div>
+      <div class="whycard">
+        <span class="whynum">79%</span>
+        <h3>Consistency is what gets rewarded</h3>
+        <p>79% of decision-makers say they are more likely to advocate for a firm during an RFP if it <strong>consistently</strong> publishes good thought leadership. Consistently is the operative word, and it is the part most people cannot sustain alone.</p>
+        <cite>Edelman and LinkedIn, 2025 B2B Thought Leadership Impact Report. 1,934 US executives, fielded March to April 2025.</cite>
+      </div>
+      <div class="whycard">
+        <span class="whynum">57%</span>
+        <h3>They want it short</h3>
+        <p>57% prefer quick takeaways over deep, academic-style content. 65% prefer a human, informal tone over an intellectual one. That is a fair description of a good 40 second clip.</p>
+        <cite>Edelman and LinkedIn, 2025 B2B Thought Leadership Impact Report.</cite>
+      </div>
+    </div>
+
+    <div class="whyread">
+      <h3>One thing I will not tell you</h3>
+      <p>Plenty of agencies will claim short-form video beats every other format. I checked, and the independent data does not support it. Studies from Socialinsider and Metricool covering roughly two million LinkedIn posts both found that documents, carousels and multi-image posts hold their own against video on engagement.</p>
+      <p>So the case for clips is not "video wins." It is that <strong>your best thinking is already recorded and nobody is seeing it</strong>, buyers form their shortlist long before they talk to you, and the people who stay visible in that window are the ones who get the call. Clips are the cheapest way to be in that window every week without creating anything new.</p>
+    </div>
+
+    <p class="srcline"><strong>Sources.</strong>
+      6sense, <a href="https://6sense.com/science-of-b2b/buyer-experience-report-2025/" target="_blank" rel="noopener">2025 B2B Buyer Experience Report</a> &middot;
+      Edelman and LinkedIn, <a href="https://www.edelman.com/sites/g/files/aatuss191/files/2025-07/2025%20Edelman-LinkedIn%20B2B%20Thought%20Leadership%20Impact%20Report_FINAL.pdf" target="_blank" rel="noopener">2025 B2B Thought Leadership Impact Report</a> &middot;
+      Metricool, <a href="https://metricool.com/press-release-linkedin-study-2026/" target="_blank" rel="noopener">2026 LinkedIn Study</a> (673,658 posts) &middot;
+      Content Marketing Institute, <a href="https://contentmarketinginstitute.com/b2b-research/b2b-content-marketing-trends-research" target="_blank" rel="noopener">B2B Content and Marketing Trends 2026</a>.
+      Every figure on this page is from a named third-party study about the market, not a claim about results o1 Labs has produced.</p>
   </div>
 </section>
 
@@ -565,6 +648,64 @@
 </footer>
 
 <script>
+// ---- example clips ---------------------------------------------------------
+// Each tile shows its poster instantly, then the YouTube player fades in on top
+// and loops silently. Only tiles on screen play, so the page stays light. If a
+// player never starts (offline, blocked, opened as a local file) the poster just
+// stays put and the tile still looks right.
+(function(){
+  var tiles = [].slice.call(document.querySelectorAll('.exframe[data-vid]'));
+  if (!tiles.length) return;
+
+  // file:// has no origin, so YouTube refuses to embed. Posters only.
+  if (location.protocol === 'file:') {
+    var note = document.createElement('p');
+    note.className = 'exnote2';
+    note.style.marginTop = '14px';
+    note.textContent = 'You are viewing this file straight from your Mac, so the clips show as covers that open on YouTube. Once the page is on o1-labs.com they play and loop right here.';
+    var g = document.querySelector('.exgrid');
+    if (g) g.parentNode.insertBefore(note, g.nextSibling);
+    return;
+  }
+
+  var players = [];
+
+  window.onYouTubeIframeAPIReady = function(){
+    tiles.forEach(function(tile, i){
+      var id = tile.dataset.vid;
+      players[i] = new YT.Player(tile.querySelector('.exmount'), {
+        videoId: id,
+        playerVars: {
+          autoplay: 1, mute: 1, loop: 1, playlist: id,
+          controls: 0, modestbranding: 1, playsinline: 1,
+          rel: 0, disablekb: 1, fs: 0, iv_load_policy: 3
+        },
+        events: {
+          onReady: function(e){ e.target.mute(); },
+          onStateChange: function(e){
+            if (e.data === YT.PlayerState.PLAYING) tile.classList.add('playing');
+            if (e.data === YT.PlayerState.ENDED) e.target.playVideo();
+          }
+        }
+      });
+    });
+
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var i = tiles.indexOf(en.target), pl = players[i];
+        if (!pl || typeof pl.playVideo !== 'function') return;
+        try { en.isIntersecting ? pl.playVideo() : pl.pauseVideo(); } catch(err){}
+      });
+    }, {threshold: 0.25});
+    tiles.forEach(function(t){ io.observe(t); });
+  };
+
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+})();
+
 function toggleMenu() {
   var h = document.getElementById('hamburger');
   var m = document.getElementById('menuOverlay');
@@ -572,6 +713,8 @@ function toggleMenu() {
   m.classList.toggle('active');
   document.body.style.overflow = m.classList.contains('active') ? 'hidden' : '';
 }
+
+
 
 // ===========================================================================
 // PASTE YOUR FOUR STRIPE PAYMENT LINK URLS HERE. Nothing else needs changing.
