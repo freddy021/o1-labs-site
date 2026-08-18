@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#14140f; --ink-soft:#4a4a42; --paper:#f7f4ec; --paper-2:#efeadd;
@@ -28,18 +28,9 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
   .narrow{max-width:780px}
   a{color:inherit}
-
-    .mast{border-bottom:var(--rule);padding:20px 0;background:var(--paper)}
-  .stickyhead{position:sticky;top:0;z-index:60}
-  .crumb{border-bottom:var(--rule);background:var(--paper-2);padding:11px 0;font-size:14px}
   .crumb .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .crumb a{text-decoration:none;color:var(--ink-soft)}
   .crumb a:hover{color:var(--ink)}
-  .mast .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{display:inline-flex;align-items:center;text-decoration:none;line-height:0}.logo img{height:26px;width:auto;display:block}
-  .navlinks{display:flex;gap:22px;font-size:14.5px;font-weight:500}
-  .navlinks a{text-decoration:none;color:var(--ink-soft)}
-  .navlinks a:hover{color:var(--ink)}
 
   .hero{padding:70px 0 58px;border-bottom:var(--rule)}
   .kicker{display:inline-block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
@@ -90,8 +81,6 @@
             background:repeating-linear-gradient(45deg,#1c1c17,#1c1c17 12px,#22221c 12px,#22221c 24px)}
   .clip cap,.clip .cap{display:block;padding:13px 15px;color:var(--paper);font-size:14px;line-height:1.45}
   .clip .cap b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:5px}
-
-  .exnote{max-width:760px;margin:18px 0 0;padding:14px 16px;border:var(--rule);background:var(--paper-2);font-size:15px;line-height:1.6}
   .exnote2{max-width:760px;margin:26px 0 0;font-size:15px;line-height:1.65;color:var(--ink-soft)}
   .exgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
   .ex{margin:0}
@@ -172,7 +161,6 @@
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
   @media(max-width:900px){
-    .navlinks{display:none}
     .gets{grid-template-columns:1fr 1fr}
     .get{border-right:0;border-bottom:1px solid var(--line);padding:22px 0}
     .get:not(:first-child){padding-left:0}
@@ -186,31 +174,100 @@
     .gets,.tiers{grid-template-columns:1fr}
     .tier{border-right:0}
   }
+
+  /* ===== SHARED SITE NAV, ported verbatim from the o1-labs.com homepage ===== */
+  :root{
+    --cream:#F2EFEA; --cream-dark:#EDE8E2; --charcoal:#2C2C2C; --charcoal-light:#4A4A4A;
+    --white:#FAFAF7; --serif:'Cormorant Garamond','Georgia',serif;
+    --sans:'DM Sans','Helvetica Neue',sans-serif;
+  }
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 36px;display:flex;
+       align-items:center;justify-content:space-between;border-bottom:1px solid transparent;
+       line-height:normal;
+       transition:background .4s,backdrop-filter .4s,border-color .4s,box-shadow .4s,padding .4s}
+  .nav a,.menu-overlay a{line-height:normal}
+  .nav.over-light{background:rgba(242,239,234,0.70);-webkit-backdrop-filter:blur(20px) saturate(160%);
+       backdrop-filter:blur(20px) saturate(160%);border-bottom-color:rgba(44,44,44,0.08);
+       box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 8px 30px rgba(44,44,44,.06)}
+  .nav-logo{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:2px;
+       text-transform:uppercase;text-decoration:none;transition:color .3s;color:var(--charcoal)}
+  .nav-right{display:flex;align-items:center;gap:26px}
+  .nav-lang{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:1.2px;
+       text-transform:uppercase;cursor:pointer;text-decoration:none;transition:color .3s;color:var(--charcoal)}
+  .nav-lang:hover{opacity:.6}
+  .nav-lang[aria-current="page"]{opacity:.5}
+  .nav-icons{display:none;align-items:center;gap:18px}
+  .hamburger{width:22px;height:14px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
+  .hamburger span{display:block;width:100%;height:1.5px;background:var(--charcoal);
+       transition:all .4s cubic-bezier(.16,1,.3,1)}
+  .hamburger.active span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .menu-overlay{position:fixed;inset:0;z-index:99;background:var(--cream);display:flex;
+       flex-direction:column;padding:110px 44px 44px;transform:translateY(-100%);
+       transition:transform .7s cubic-bezier(.16,1,.3,1)}
+  .menu-overlay.active{transform:translateY(0)}
+  .menu-nav-links{padding-top:8px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .menu-nav-link{font-family:var(--serif);font-weight:300;font-size:44px;color:var(--charcoal);
+       text-decoration:none;padding:10px 0;transition:opacity .3s;line-height:1.08}
+  .menu-nav-link:hover{opacity:.4}
+  .menu-footer-links{display:flex;gap:28px;padding-top:32px;border-top:1px solid rgba(44,44,44,.08)}
+  .menu-footer-link{font-family:var(--sans);font-size:10px;font-weight:500;text-transform:uppercase;
+       letter-spacing:1.8px;color:var(--charcoal-light);text-decoration:none;transition:opacity .3s}
+  .menu-footer-link:hover{opacity:.5}
+  @media (max-width:900px){ .nav-right .nav-lang{display:none} .nav-icons{display:flex} }
+  @media (max-width:768px){ .nav{padding:16px 22px} .menu-overlay{padding:100px 28px 28px}
+       .menu-nav-link{font-size:34px} }
+
+  /* the crumb sits directly under the fixed nav */
+  body{padding-top:60px}
+  .crumb{position:sticky;top:60px;z-index:60;border-bottom:var(--rule);background:var(--paper-2);
+         padding:11px 0;font-size:14px}
+  @media (max-width:768px){ body{padding-top:56px} .crumb{top:56px} }
 </style>
 </head>
 <body>
 
-<div class="stickyhead">
-<div class="mast">
-  <div class="wrap">
-    <a class="logo" href="/"><img src="/o1-labs-logo.png" alt="o1 Labs"></a>
-    <nav class="navlinks">
-      <a href="/#services">Services</a>
-      <a href="/#about">About</a>
-      <a href="/ai-readiness/">Assessment</a>
-    </nav>
-    <a class="btn" href="#start" style="padding:10px 18px;font-size:14px">Start here</a>
+<nav class="nav over-light" id="mainNav">
+  <a href="/" class="nav-logo">o1 Labs</a>
+  <div class="nav-right">
+    <a href="/#services" class="nav-lang">Services</a>
+    <a href="/#about" class="nav-lang">About</a>
+    <a href="/blog/" class="nav-lang">Blog</a>
+    <a href="/ai-readiness/" class="nav-lang">AI Check</a>
+    <a href="/#contact" class="nav-lang">Contact</a>
+    <div class="nav-icons">
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-nav-links">
+    <a href="/#services" class="menu-nav-link">Services</a>
+    <a href="/#about" class="menu-nav-link">About</a>
+    <a href="/blog/" class="menu-nav-link">Blog</a>
+    <a href="/ai-readiness/" class="menu-nav-link">AI Readiness Check</a>
+    <a href="/clips/" class="menu-nav-link">Social Media Clips</a>
+    <a href="/#contact" class="menu-nav-link">Contact</a>
+  </div>
+  <div class="menu-footer-links">
+    <a href="https://www.linkedin.com/in/freddyalcantara/" class="menu-footer-link">LinkedIn</a>
+    <a href="/privacy" class="menu-footer-link">Privacy</a>
+    <a href="/terms" class="menu-footer-link">Terms</a>
   </div>
 </div>
 
 <div class="crumb">
   <div class="wrap">
-    <a href="/#services">&larr; o1 Labs</a>
+    <a href="/">&larr; o1 Labs</a>
     <span style="color:var(--line)">/</span>
     <span style="font-weight:600">Social Media Clips</span>
   </div>
 </div>
-</div><!-- /stickyhead -->
+
 
 <header class="hero">
   <div class="wrap">
@@ -256,12 +313,12 @@
 
 <section id="samples">
   <div class="wrap">
-    <h2>What a clip actually is</h2>
+    <h2>What a Clip actually is and why your brand needs them</h2>
     <p class="lede">If short-form is not your world yet, this is the format. Vertical, full screen on a phone, 30 to 70 seconds, captions burned in so it works on mute. One idea, start to finish. That is the whole thing.</p>
 
-    <p class="exnote"><strong>These are other people's clips, not ours.</strong> Six public examples from channels in your world, chosen so you can see the format rather than take my word for it. Every one was pulled from a longer conversation. Yours would look like these, with your face and your ideas.</p>
+    <div class="sec-label" style="margin-top:34px;margin-bottom:0">Example clips</div>
 
-    <div class="exgrid">
+<div class="exgrid">
       <figure class="ex">
         <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dO473tzL77Q?rel=0&amp;modestbranding=1" title="The Best Mindset for Accountability" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
         <figcaption><span class="exchan">Simon Sinek</span><span class="extitle">The Best Mindset for Accountability</span><span class="exdur">51s</span></figcaption>
@@ -288,7 +345,7 @@
       </figure>
     </div>
 
-    <p class="exnote2">What all six have in common, and what you are actually buying: someone read a 60 minute transcript and decided which 40 seconds could stand alone. The editing is the cheap part.</p>
+    <p class="exnote2">Those are public clips from other channels, shown so you can see the format. What they have in common, and what you are actually buying, is that someone read a 60 minute transcript and decided which 40 seconds could stand alone. The editing is the cheap part.</p>
   </div>
 </section>
 
@@ -505,6 +562,14 @@
 </footer>
 
 <script>
+function toggleMenu() {
+  var h = document.getElementById('hamburger');
+  var m = document.getElementById('menuOverlay');
+  h.classList.toggle('active');
+  m.classList.toggle('active');
+  document.body.style.overflow = m.classList.contains('active') ? 'hidden' : '';
+}
+
 // ===========================================================================
 // PASTE YOUR FOUR STRIPE PAYMENT LINK URLS HERE. Nothing else needs changing.
 // ===========================================================================
