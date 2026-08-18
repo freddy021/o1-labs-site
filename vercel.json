@@ -4,17 +4,44 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        }
       ]
     },
     {
       "source": "/favicon.svg",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, immutable"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/ai-is-eating-the-bottom-rung.html",
+      "destination": "/blog/ai-is-taking-entry-level-work.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/audio/ai-is-eating-the-bottom-rung.mp3",
+      "destination": "/blog/audio/ai-is-taking-entry-level-work.mp3",
+      "permanent": true
     }
   ]
 }
