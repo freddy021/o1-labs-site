@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What AI training is actually worth: the measurement problem nobody wants to name &middot; o1 Labs</title>
+<meta name="description" content="Enterprises are spending real money on AI enablement while the best available evidence says almost nobody can connect it to a financial number.">
+<link rel="canonical" href="https://o1-labs.com/blog/what-ai-training-is-actually-worth.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="o1 Labs">
+<meta property="og:title" content="What AI training is actually worth: the measurement problem nobody names">
+<meta property="og:description" content="Why AI training ROI is so hard to prove, and where the credible evidence actually points.">
+<meta property="og:url" content="https://o1-labs.com/blog/what-ai-training-is-actually-worth.html">
+<meta property="og:image" content="https://o1-labs.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="article:published_time" content="2026-08-18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What AI training is actually worth: the measurement problem nobody wants to name",
+  "description": "Why AI training ROI is so hard to prove, and where the credible evidence actually points.",
+  "datePublished": "2026-08-18",
+  "author": { "@type": "Organization", "name": "o1 Labs", "url": "https://o1-labs.com/" },
+  "publisher": { "@type": "Organization", "name": "o1 Labs", "logo": { "@type": "ImageObject", "url": "https://o1-labs.com/favicon.svg" } },
+  "mainEntityOfPage": "https://o1-labs.com/blog/what-ai-training-is-actually-worth.html",
+  "image": "https://o1-labs.com/og.png"
+}
+</script>
+</head></head>
+<body>
+<header>
+  <nav class="bnav">
+    <a href="/" class="bnav-logo">o1 Labs</a>
+    <div class="bnav-links">
+      <a href="/#services" class="bnav-link">Services</a>
+      <a href="/#about" class="bnav-link">About</a>
+      <a href="/blog/" class="bnav-link active">Blog</a>
+      <a href="/#contact" class="bnav-link">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="article">
+  <a href="/blog/" class="back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    All articles
+  </a>
+  <div class="article-meta">
+    <span class="post-cat">Measurement</span>
+    <span class="post-date">August 18, 2026</span>
+    <span class="post-read">7 min read</span>
+  </div>
+  <h1 class="article-title">What AI training is <em>actually</em> worth</h1>
+
+  <div class="listen-wrap">
+    <audio id="listenAudio" class="listen-audio" controls preload="none" src="/blog/audio/what-ai-training-is-actually-worth.mp3"></audio>
+    <span class="listen-note">Listen to this article</span>
+  </div>
+
+  <div class="article-body">
+    <p>Three years into enterprise generative AI, the "we are still learning" grace period is over. Finance is asking what the training budget bought. The honest answer, based on the best available evidence, is that almost nobody can tell them, and the numbers people do collect are less reliable than they look.</p>
+
+    <h2>Start with the uncomfortable baseline</h2>
+    <p>McKinsey's <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">State of AI 2025</a> surveyed 1,993 respondents across 105 countries. Only <strong>39% attribute any EBIT impact at all to AI</strong>, and among those who do, most put it below 5% of enterprise earnings.</p>
+    <p>Deloitte's <a href="https://www.deloitte.com/global/en/issues/generative-ai/state-of-ai-in-enterprise.html" target="_blank" rel="noopener">State of AI in the Enterprise 2026</a>, covering 3,235 senior leaders in 24 countries, finds the gap in sharper relief: <strong>74% hope AI will increase revenue, 20% say it has</strong>. Meanwhile 66% report productivity or efficiency gains. Saved hours are not automatically money, and the space between those two numbers is where most AI business cases quietly fail.</p>
+    <p>The most honest number I found is from <a href="https://www.isaca.org/about-us/newsroom/press-releases/2026/ai-use-accelerates-while-governance-and-roi-lag-says-new-isaca-research" target="_blank" rel="noopener">ISACA's 2026 AI Pulse Poll</a> of 3,400 professionals. 22% say ROI met or exceeded expectations. But 23% say it is too early to tell and another 22% simply do not know. Nearly half the room is saying "we cannot answer that." That, not the 22%, is the headline.</p>
+    <p>The mechanical reason is unglamorous. As recently as mid-2024, McKinsey found <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/the%20state%20of%20ai/2025/the-state-of-ai-how-organizations-are-rewiring-to-capture-value_final.pdf" target="_blank" rel="noopener">fewer than one in five organisations</a> tracking well-defined KPIs for their generative AI work. You cannot report a return you never instrumented.</p>
+
+    <h2>Why the numbers you do collect are suspect</h2>
+    <p>This is the finding that should change how you run evaluations. In a randomised trial by <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">METR</a>, experienced open-source developers were <strong>19% slower</strong> when using AI tools. Afterwards, the same developers estimated AI had made them <strong>20% faster</strong>. They had predicted a 24% speedup going in.</p>
+    <p>A 39-point gap between believed and measured performance. If your AI training evaluation is a post-course survey asking people whether it made them more productive, that is the size of error you may be reporting to your board.</p>
+    <p>Be fair to the study: 16 developers, working in codebases they knew intimately, which is the setting least favourable to AI. And in <a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener">February 2026 METR published a redesign note</a> saying their follow-up was compromised by selection effects, with confidence intervals crossing zero. They published evidence against their own headline finding, which is more than most researchers manage. The lesson survives regardless: self-reported productivity is not evidence.</p>
+
+    <h2>Where the credible gains actually are</h2>
+    <p>The strongest evidence in this entire field is peer-reviewed and consistent on one point. In <a href="https://academic.oup.com/qje/article/140/2/889/7990658" target="_blank" rel="noopener">Generative AI at Work</a>, published in the Quarterly Journal of Economics, roughly 5,200 customer support agents saw a <strong>14% average productivity gain, rising to 34% for novice and low-skilled workers</strong>.</p>
+    <p>The same shape appears in software. Three randomised trials across <a href="https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf" target="_blank" rel="noopener">4,867 developers</a> at Microsoft, Accenture and a Fortune 100 manufacturer found junior developers gaining 21% to 40% while seniors gained 7% to 16%. Short-tenure staff gained 27% to 39%, long-tenure 8% to 13%.</p>
+    <p>Two different industries, different research teams, same pattern: <strong>the return concentrates in your least experienced people</strong>. Most AI enablement budgets are spent in exactly the opposite direction, on senior staff and leadership awareness sessions. Worth noting that two of the three software firms are AI vendors or major AI partners, and that all of this measures output volume rather than quality.</p>
+
+    <h2>The gap nobody is filling</h2>
+    <p>Here is what I could not find, after a genuinely thorough search: <strong>any credible published data on the ROI of AI training as distinct from AI tooling</strong>. Every number available measures what happened when a tool was deployed. None isolates what the enablement contributed.</p>
+    <p>That is a real hole in the evidence base, and anyone claiming otherwise is quoting a vendor. It also means the honest position for an L&D leader right now is not "here is our proven return." It is "here is the measurement design that will let us answer this in two quarters."</p>
+
+    <h2>What a defensible measurement design looks like</h2>
+    <p>Pick one workflow, not a portfolio. Measure the output before training, using something the business already counts rather than something you invented. Split by experience level, because the evidence says that is where the variance lives. Do not use a self-report survey as your primary measure; use it only to explain what the objective numbers show. And set the review date before you start, so the answer is not negotiated afterwards.</p>
+    <p>That is slower than a satisfaction score. It is also the only version that survives a finance review.</p>
+
+    <p class="post-note"><strong>On sourcing.</strong> Every figure links to its source. Two famous statistics are deliberately absent. The claim that 95% of generative AI pilots fail is everywhere right now, but the underlying MIT NANDA document was not retrievable, so every version circulating is second-hand. And Gartner's prediction that 30% of projects would be abandoned by end of 2025 was an analyst forecast with no stated survey basis, about a period that has now passed without published verification. Neither belongs in a board paper.</p>
+  </div>
+
+  <div class="article-foot">
+    <a href="/#contact" class="article-cta">
+      Get your pilot unstuck
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</main>
+
+<footer class="bfooter">
+  <div class="bfooter-inner">
+    <div class="bfooter-logo">o1 Labs</div>
+    <nav class="bfooter-nav">
+      <a href="/#services" class="bfooter-link">Services</a>
+      <a href="/blog/" class="bfooter-link">Blog</a>
+      <a href="/#contact" class="bfooter-link">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
