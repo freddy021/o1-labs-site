@@ -98,6 +98,26 @@ a { color: inherit; }
   .menu-nav-link { font-size: 34px; }
 }
 
+/* ===== SHARED STICKY BREADCRUMB, same as the Social Media Clips page =====
+   Sits directly under the fixed nav so people always have a way back. */
+.crumb {
+  position: sticky; top: 60px; z-index: 60;
+  border-bottom: var(--rule); background: var(--paper-2);
+  padding: 11px 0; font-size: 14px;
+}
+.crumb .crumb-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 28px;
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+}
+.crumb.narrow .crumb-inner { max-width: 720px; }
+.crumb a { text-decoration: none; color: var(--ink-soft); transition: color .2s; }
+.crumb a:hover { color: var(--ink); }
+.crumb .sep { color: var(--line); }
+.crumb .here { font-weight: 600; }
+@media (max-width: 768px) { .crumb { top: 56px; } }
+/* anchors have to clear the fixed nav plus the sticky crumb */
+.has-crumb section[id], .has-crumb div[id] { scroll-margin-top: 118px; }
+
 /* ===== BLOG INDEX ===== */
 .blog-head {
   max-width: 1080px; margin: 0 auto; padding: 72px 28px 44px;
@@ -113,7 +133,7 @@ a { color: inherit; }
 }
 .blog-h1 em {
   font-style: normal;
-  background: linear-gradient(transparent 62%, var(--signal) 62%);
+  background: linear-gradient(transparent 52%, var(--signal) 52%, var(--signal) 86%, transparent 86%);
   padding: 0 2px;
 }
 .blog-intro {
@@ -170,7 +190,7 @@ a { color: inherit; }
 }
 .article-title em {
   font-style: normal;
-  background: linear-gradient(transparent 62%, var(--signal) 62%);
+  background: linear-gradient(transparent 52%, var(--signal) 52%, var(--signal) 86%, transparent 86%);
   padding: 0 3px;
 }
 
