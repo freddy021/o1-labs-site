@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>o1 Clips: your best thinking, in front of the people who hire you</title>
+<meta name="description" content="Done-for-you short-form video for consultants, coaches and L&D leaders. Send one recording, get finished vertical clips back in 72 hours.">
+<link rel="canonical" href="https://o1-labs.com/clips/">
+<link rel="icon" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://o1-labs.com/clips/">
+<meta property="og:title" content="o1 Clips: your best thinking, in front of the people who hire you">
+<meta property="og:description" content="Done-for-you short-form video for consultants, coaches and L&amp;D leaders. Send one recording, get finished vertical clips back in 72 hours.">
+<meta property="og:image" content="https://o1-labs.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14140f; --ink-soft:#4a4a42; --paper:#f7f4ec; --paper-2:#efeadd;
+    --signal:#ffcc00; --line:#d9d2c0; --rule:2px solid var(--ink); --ok:#1c7a4a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,sans-serif;
+       font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .narrow{max-width:780px}
+  a{color:inherit}
+
+    .mast{border-bottom:var(--rule);padding:20px 0;background:var(--paper)}
+  .stickyhead{position:sticky;top:0;z-index:60}
+  .crumb{border-bottom:var(--rule);background:var(--paper-2);padding:11px 0;font-size:14px}
+  .crumb .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .crumb a{text-decoration:none;color:var(--ink-soft)}
+  .crumb a:hover{color:var(--ink)}
+  .mast .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:inline-flex;align-items:center;text-decoration:none;line-height:0}.logo img{height:26px;width:auto;display:block}
+  .navlinks{display:flex;gap:22px;font-size:14.5px;font-weight:500}
+  .navlinks a{text-decoration:none;color:var(--ink-soft)}
+  .navlinks a:hover{color:var(--ink)}
+
+  .hero{padding:70px 0 58px;border-bottom:var(--rule)}
+  .kicker{display:inline-block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+          font-weight:600;border:1.5px solid var(--ink);padding:5px 11px;margin-bottom:26px}
+  h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(36px,6vw,68px);
+     line-height:1.03;letter-spacing:-.025em;max-width:16ch}
+  h1 mark{background:linear-gradient(transparent 62%,var(--signal) 62%);color:inherit;padding:0 2px}
+  .sub{margin-top:24px;font-size:clamp(17.5px,2vw,21px);max-width:56ch;color:var(--ink-soft)}
+  .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-weight:600;font-size:16px;
+       padding:16px 30px;text-decoration:none;border:2px solid var(--ink);transition:.14s;cursor:pointer}
+  .btn:hover{background:var(--signal);color:var(--ink)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn[disabled]{opacity:.4;cursor:not-allowed}
+  .btn[disabled]:hover{background:var(--ink);color:var(--paper)}
+  .microcopy{font-size:14px;color:var(--ink-soft)}
+
+  section{padding:62px 0;border-bottom:var(--rule)}
+  h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(26px,3.5vw,40px);
+     line-height:1.12;letter-spacing:-.02em;max-width:22ch}
+  h2 + .lede{margin-top:16px;max-width:62ch;color:var(--ink-soft);font-size:18px}
+  h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+
+  /* what you get */
+  .gets{display:grid;grid-template-columns:repeat(4,1fr);margin-top:40px;border-top:var(--rule)}
+  .get{padding:26px 22px 26px 0;border-right:1px solid var(--line)}
+  .get:last-child{border-right:0;padding-right:0}
+  .get:not(:first-child){padding-left:22px}
+  .get .n{font-family:Fraunces,serif;font-size:15px;font-weight:700;letter-spacing:.1em;
+          display:block;margin-bottom:10px;color:var(--ink-soft)}
+  .get p{font-size:15px;color:var(--ink-soft);margin-top:7px}
+  .get strong{color:var(--ink)}
+
+  /* samples */
+  .tabs{display:flex;gap:0;margin-top:34px;border:var(--rule);width:max-content;max-width:100%}
+  .tab{padding:11px 22px;font-size:14.5px;font-weight:600;cursor:pointer;background:transparent;
+       border:0;border-right:1px solid var(--line);font-family:inherit}
+  .tab:last-child{border-right:0}
+  .tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+  .gallery[hidden]{display:none}
+  .clip{border:var(--rule);background:var(--ink)}
+  .clip .frame{position:relative;width:100%;aspect-ratio:9/16;background:#000;overflow:hidden}
+  .clip .frame iframe,.clip .frame video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+  .clip .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+            justify-content:center;gap:10px;color:#8d8878;text-align:center;padding:24px;font-size:13.5px;
+            background:repeating-linear-gradient(45deg,#1c1c17,#1c1c17 12px,#22221c 12px,#22221c 24px)}
+  .clip cap,.clip .cap{display:block;padding:13px 15px;color:var(--paper);font-size:14px;line-height:1.45}
+  .clip .cap b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:5px}
+
+  .exnote{max-width:760px;margin:18px 0 0;padding:14px 16px;border:var(--rule);background:var(--paper-2);font-size:15px;line-height:1.6}
+  .exnote2{max-width:760px;margin:26px 0 0;font-size:15px;line-height:1.65;color:var(--ink-soft)}
+  .exgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+  .ex{margin:0}
+  .exframe{position:relative;aspect-ratio:9/16;border:2px solid var(--ink);background:#000;overflow:hidden}
+  .exframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .ex figcaption{display:flex;flex-direction:column;gap:2px;padding-top:9px;font-size:13px;line-height:1.4}
+  .exchan{font-weight:700}
+  .extitle{color:var(--ink-soft)}
+  .exdur{color:var(--ink-soft);font-variant-numeric:tabular-nums;opacity:.75}
+
+  /* pricing */
+  .foundbar{background:var(--ink);color:var(--paper);padding:14px 0;font-size:15px}
+  .foundbar .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .foundbar b{color:var(--signal)}
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);margin-top:36px;border:var(--rule)}
+  .tier{padding:26px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+  .tier:last-child{border-right:0}
+  .tier.feature{background:var(--ink);color:var(--paper)}
+  .tier.feature .tier-name,.tier.feature .was{color:#b9b2a0}
+  .tier.feature ul li{border-color:#33332b}
+  .tier-name{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
+  .price{font-family:Fraunces,serif;font-size:36px;font-weight:600;margin:10px 0 2px;letter-spacing:-.02em}
+  .price small{font-family:Poppins,sans-serif;font-size:13px;font-weight:400;letter-spacing:0;color:var(--ink-soft)}
+  .tier.feature .price small{color:#b9b2a0}
+  .was{font-size:12.5px;color:var(--ink-soft);margin-bottom:14px}
+  .was s{opacity:.75}
+  .tier ul{list-style:none;margin:6px 0 22px;flex:1}
+  .tier ul li{font-size:14px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .tier ul li:last-child{border-bottom:0}
+  .tier .btn{width:100%;text-align:center;padding:12px 8px;font-size:14px}
+  .tier.feature .btn{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+  .badge{display:inline-block;background:var(--signal);color:var(--ink);font-size:11px;font-weight:700;
+         letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;margin-bottom:10px;align-self:flex-start}
+
+  /* configurator */
+  .config{background:var(--paper-2)}
+  .steps{margin-top:34px;border:var(--rule);background:var(--paper)}
+  .step{padding:26px 28px;border-bottom:1px solid var(--line)}
+  .step:last-of-type{border-bottom:0}
+  .step h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}
+  .opts{display:flex;flex-wrap:wrap;gap:10px}
+  .opt{border:1.5px solid var(--ink);padding:12px 18px;cursor:pointer;font-size:15px;font-weight:500;
+       background:transparent;font-family:inherit;text-align:left;transition:.12s}
+  .opt:hover{background:var(--paper-2)}
+  .opt[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .opt span{display:block;font-size:12.5px;font-weight:400;opacity:.72;margin-top:2px}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .fields label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+  .fields input,.fields textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);
+       background:var(--paper);font-family:inherit;font-size:15px;color:var(--ink)}
+  .fields input:focus,.fields textarea:focus{outline:0;border-color:var(--ink)}
+  .fields .full{grid-column:1/-1}
+  .summary{padding:26px 28px;background:var(--ink);color:var(--paper);
+           display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+  .summary .tot{font-family:Fraunces,serif;font-size:30px;letter-spacing:-.02em}
+  .summary .tot small{font-family:Poppins,sans-serif;font-size:13px;color:#b9b2a0}
+  .summary .what{font-size:14px;color:#b9b2a0;max-width:44ch}
+  .summary .btn{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+  .summary .btn:hover{background:var(--paper);border-color:var(--paper)}
+
+  .faq{margin-top:30px;border-top:var(--rule)}
+  details{border-bottom:1px solid var(--line);padding:19px 0}
+  summary{font-weight:600;font-size:17px;cursor:pointer;list-style:none;display:flex;
+          justify-content:space-between;gap:20px;align-items:flex-start}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:23px;line-height:1;color:var(--ink-soft);flex-shrink:0}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:12px;color:var(--ink-soft);max-width:68ch;font-size:16px}
+
+  .pull{background:var(--ink);color:var(--paper);border-bottom:0}
+  .pull p{font-family:Fraunces,serif;font-size:clamp(22px,3.3vw,35px);line-height:1.28;
+          max-width:23ch;letter-spacing:-.015em}
+  .pull p mark{background:var(--signal);color:var(--ink);padding:0 4px}
+  .pull .who{margin-top:24px;font-family:Poppins,sans-serif;font-size:14.5px;color:#b9b2a0;
+             max-width:54ch;line-height:1.6}
+
+  footer{padding:32px 0;font-size:14px;color:var(--ink-soft);border-top:var(--rule)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media(max-width:900px){
+    .navlinks{display:none}
+    .gets{grid-template-columns:1fr 1fr}
+    .get{border-right:0;border-bottom:1px solid var(--line);padding:22px 0}
+    .get:not(:first-child){padding-left:0}
+    .gallery{grid-template-columns:1fr 1fr}
+    .tiers{grid-template-columns:1fr 1fr}
+    .tier{border-bottom:1px solid var(--line)}
+    .fields{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .exgrid{grid-template-columns:repeat(2,1fr)}
+    .gets,.tiers{grid-template-columns:1fr}
+    .tier{border-right:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="stickyhead">
+<div class="mast">
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/o1-labs-logo.png" alt="o1 Labs"></a>
+    <nav class="navlinks">
+      <a href="/#services">Services</a>
+      <a href="/#about">About</a>
+      <a href="/ai-readiness/">Assessment</a>
+    </nav>
+    <a class="btn" href="#start" style="padding:10px 18px;font-size:14px">Start here</a>
+  </div>
+</div>
+
+<div class="crumb">
+  <div class="wrap">
+    <a href="/#services">&larr; o1 Labs</a>
+    <span style="color:var(--line)">/</span>
+    <span style="font-weight:600">Social Media Clips</span>
+  </div>
+</div>
+</div><!-- /stickyhead -->
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">For consultants, coaches &amp; L&amp;D leaders</span>
+    <h1>You already recorded the <mark>best thing</mark> you'll say this year.</h1>
+    <p class="sub">It's sitting in a folder. One webinar, one podcast episode, one conference talk. Send me the link and I'll send back finished vertical clips, captioned and ready to post, within 72 hours. Plus a read on which ones to post first.</p>
+    <div class="cta-row">
+      <a class="btn" href="#start" data-pick="pilot">Start with one video, $350</a>
+      <a class="btn btn-ghost" href="#samples">See what a clip is</a>
+    </div>
+    <p class="microcopy" style="margin-top:16px">Founding rate. No call. No contract. Cancel yourself, any time.</p>
+  </div>
+</header>
+
+<section id="what">
+  <div class="wrap">
+    <h2>You're not buying video files. You're buying the decision about which 40 seconds matter.</h2>
+    <p class="lede">Anyone can cut a video. The hard part is knowing which moment will make a Head of L&amp;D stop scrolling, and that is the part I actually sell.</p>
+    <div class="gets">
+      <div class="get">
+        <span class="n">01</span>
+        <h3>A content audit</h3>
+        <p>Before I cut anything, I tell you what you're currently visible for, what you <strong>want</strong> to be known for, and where those two things have come apart.</p>
+      </div>
+      <div class="get">
+        <span class="n">02</span>
+        <h3>Clips chosen for a buyer</h3>
+        <p>You tell me who you want watching and what you want them to hire you for. I pick differently because of your answer, and I tell you how.</p>
+      </div>
+      <div class="get">
+        <span class="n">03</span>
+        <h3>The reasoning, in writing</h3>
+        <p>Every clip comes with its hook, why that moment, and which platform suits it. Plus <strong>post these three first, in this order</strong>, and why.</p>
+      </div>
+      <div class="get">
+        <span class="n">04</span>
+        <h3>A monthly read</h3>
+        <p>Send me your numbers. I come back with one paragraph on what travelled, what didn't, and what to lean into next month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="samples">
+  <div class="wrap">
+    <h2>What a clip actually is</h2>
+    <p class="lede">If short-form is not your world yet, this is the format. Vertical, full screen on a phone, 30 to 70 seconds, captions burned in so it works on mute. One idea, start to finish. That is the whole thing.</p>
+
+    <p class="exnote"><strong>These are other people's clips, not ours.</strong> Six public examples from channels in your world, chosen so you can see the format rather than take my word for it. Every one was pulled from a longer conversation. Yours would look like these, with your face and your ideas.</p>
+
+    <div class="exgrid">
+      <figure class="ex">
+        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dO473tzL77Q?rel=0&amp;modestbranding=1" title="The Best Mindset for Accountability" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption><span class="exchan">Simon Sinek</span><span class="extitle">The Best Mindset for Accountability</span><span class="exdur">51s</span></figcaption>
+      </figure>
+      <figure class="ex">
+        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/zaQxeAqz8uw?rel=0&amp;modestbranding=1" title="High-Performing Teams Get and Give More Feedback" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption><span class="exchan">Harvard Business Review</span><span class="extitle">High-Performing Teams Get and Give More Feedback</span><span class="exdur">68s</span></figcaption>
+      </figure>
+      <figure class="ex">
+        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/iy-_aaqC1UE?rel=0&amp;modestbranding=1" title="Make It Understandable, But Don't Dumb It Down" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption><span class="exchan">Think Fast Talk Smart, Stanford GSB</span><span class="extitle">Make It Understandable, But Don't Dumb It Down</span><span class="exdur">40s</span></figcaption>
+      </figure>
+      <figure class="ex">
+        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/kaFiNLiIPpQ?rel=0&amp;modestbranding=1" title="Anthropic's co-founder on using Claude effectively" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption><span class="exchan">Lenny's Podcast</span><span class="extitle">Anthropic's co-founder on using Claude effectively</span><span class="exdur">61s</span></figcaption>
+      </figure>
+      <figure class="ex">
+        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/aU7IqlWBMbQ?rel=0&amp;modestbranding=1" title="Embrace AI Without Eroding Trust" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption><span class="exchan">Harvard Business Review</span><span class="extitle">Embrace AI Without Eroding Trust</span><span class="exdur">41s</span></figcaption>
+      </figure>
+      <figure class="ex">
+        <div class="exframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/W-RlFK0psvM?rel=0&amp;modestbranding=1" title="The Best Leaders Ask Questions" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption><span class="exchan">Think Fast Talk Smart, Stanford GSB</span><span class="extitle">The Best Leaders Ask Questions</span><span class="exdur">34s</span></figcaption>
+      </figure>
+    </div>
+
+    <p class="exnote2">What all six have in common, and what you are actually buying: someone read a 60 minute transcript and decided which 40 seconds could stand alone. The editing is the cheap part.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     RESULTS SECTION. Deliberately commented out until you have real numbers.
+
+     Competitors in this space (clipify, clipping.net) lead with big stat
+     bars: "3B+ views", "$250K paid out". Those work because they earned
+     them. You have not, and a fabricated stat bar is the fastest way to
+     lose a buyer who checks.
+
+     The moment your FIRST client sends you a month of numbers, delete the
+     comment markers around this block and fill in the real figures. Three
+     metrics per client, exactly like the competitors do it, because
+     specificity beats adjectives.
+     =====================================================================
+<section>
+  <div class="wrap">
+    <h2>What this has done for clients.</h2>
+    <p class="lede">Real numbers from real accounts. No estimates.</p>
+    <div class="gets">
+      <div class="get">
+        <span class="n">CLIENT NAME</span>
+        <h3>0,000 views in 30 days</h3>
+        <p>00 clips posted. Best performer: "the hook that worked". Starting point: 000 followers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+     ===================================================================== -->
+
+<section class="pull">
+  <div class="wrap narrow">
+    <p>Nobody hires you because your ideas are good. They hire you because <mark>they've heard them.</mark></p>
+    <p class="who">I run o1 Labs, an L&amp;D and AI consultancy. I built this because I kept watching genuinely excellent people lose work to louder ones. The clips are the fix, and cutting them shouldn't be your job.</p>
+  </div>
+</section>
+
+<div class="foundbar">
+  <div class="wrap"><b>Founding rates</b> &nbsp;·&nbsp; First 10 clients only, locked for 12 months. You keep your rate even if our prices go up.</div>
+</div>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="lede">Start with one video. If it works, make it a habit. Every monthly plan is month to month and you cancel yourself, no email and no notice period.</p>
+    <div class="tiers">
+      <div class="tier feature">
+        <span class="badge">Start here</span>
+        <span class="tier-name">Pilot</span>
+        <div class="price">$350<small> once</small></div>
+        <div class="was"><s>$450</s> founding rate</div>
+        <ul>
+          <li>Content audit, one page</li>
+          <li>6 clips from one video</li>
+          <li>Your pick of 4 caption styles</li>
+          <li>Post copy for every platform</li>
+          <li>Which 3 to post first, and why</li>
+          <li>72 hour delivery</li>
+        </ul>
+        <a class="btn" href="#start" data-pick="pilot">Send me a video</a>
+      </div>
+      <div class="tier">
+        <span class="tier-name">Core</span>
+        <div class="price">$650<small>/mo</small></div>
+        <div class="was"><s>$850</s> founding rate</div>
+        <ul>
+          <li>Everything in Pilot</li>
+          <li>12 clips per month</li>
+          <li>Monthly performance read</li>
+          <li>72 hour turnaround</li>
+          <li>Cancel anytime, no notice</li>
+        </ul>
+        <a class="btn btn-ghost" href="#start" data-pick="core">Choose Core</a>
+      </div>
+      <div class="tier">
+        <span class="tier-name">Growth</span>
+        <div class="price">$1,050<small>/mo</small></div>
+        <div class="was"><s>$1,500</s> founding rate</div>
+        <ul>
+          <li>Everything in Core</li>
+          <li>24 clips per month</li>
+          <li>Copy written per platform</li>
+          <li>Quarterly strategy session</li>
+          <li>48 hour priority turnaround</li>
+        </ul>
+        <a class="btn btn-ghost" href="#start" data-pick="growth">Choose Growth</a>
+      </div>
+      <div class="tier">
+        <span class="tier-name">Authority</span>
+        <div class="price">$2,500<small>/mo</small></div>
+        <div class="was">I run the channel, not just the clips</div>
+        <ul>
+          <li>Everything in Growth</li>
+          <li><strong>I schedule and post for you</strong></li>
+          <li>Channel management end to end</li>
+          <li>Monthly strategy call</li>
+          <li>40 clips per month</li>
+        </ul>
+        <a class="btn btn-ghost" href="#start" data-pick="authority">Choose Authority</a>
+      </div>
+    </div>
+    <p class="microcopy" style="margin-top:20px">Growth is me making your clips. Authority is me running your channel, so you stop touching it entirely.</p>
+  </div>
+</section>
+
+<section id="start" class="config">
+  <div class="wrap">
+    <h2>Build your order</h2>
+    <p class="lede">Four quick choices, then checkout. Takes about a minute and there's no call at any point.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h3>1 &nbsp;·&nbsp; What do you want</h3>
+        <div class="opts" id="optTier">
+          <button class="opt" data-k="pilot"     data-price="350"  data-rec="one time" aria-pressed="true">Pilot &nbsp;$350<span>6 clips from one video</span></button>
+          <button class="opt" data-k="core"      data-price="650"  data-rec="per month" aria-pressed="false">Core &nbsp;$650<span>12 clips a month</span></button>
+          <button class="opt" data-k="growth"    data-price="1050" data-rec="per month" aria-pressed="false">Growth &nbsp;$1,050<span>24 clips a month</span></button>
+          <button class="opt" data-k="authority" data-price="2500" data-rec="per month" aria-pressed="false">Authority &nbsp;$2,500<span>40 clips, I post them</span></button>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>2 &nbsp;·&nbsp; Where are these going</h3>
+        <div class="opts" id="optPlat">
+          <button class="opt" data-v="LinkedIn" aria-pressed="true">LinkedIn</button>
+          <button class="opt" data-v="Instagram Reels" aria-pressed="false">Instagram Reels</button>
+          <button class="opt" data-v="TikTok" aria-pressed="false">TikTok</button>
+          <button class="opt" data-v="YouTube Shorts" aria-pressed="false">YouTube Shorts</button>
+        </div>
+        <p class="microcopy" style="margin-top:10px"><strong>Pick as many as you like, the price does not change.</strong> The clip file is identical everywhere, it is 9:16 vertical for all of them. What changes is the written caption, and I write one per platform at no extra cost. On Authority I also post to every platform you pick.</p>
+      </div>
+
+      <div class="step">
+        <h3>3 &nbsp;·&nbsp; Caption style</h3>
+        <div class="opts" id="optStyle">
+          <button class="opt" data-v="Signal" aria-pressed="true">Signal<span>Keyword pops yellow. The default.</span></button>
+          <button class="opt" data-v="Boardroom" aria-pressed="false">Boardroom<span>Restrained. For executives.</span></button>
+          <button class="opt" data-v="Blockout" aria-pressed="false">Blockout<span>One big word at a time.</span></button>
+          <button class="opt" data-v="Underline" aria-pressed="false">Underline<span>Clean accent underline.</span></button>
+          <button class="opt" data-v="Not sure, you pick" aria-pressed="false">Not sure<span>I'll choose for your audience.</span></button>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>4 &nbsp;·&nbsp; Where's the video</h3>
+        <div class="fields">
+          <div><label for="fName">Your name</label><input id="fName" type="text" placeholder="Jane Okafor"></div>
+          <div><label for="fEmail">Email</label><input id="fEmail" type="email" placeholder="jane@company.com"></div>
+          <div class="full"><label for="fLink">Link to your video</label><input id="fLink" type="url" placeholder="YouTube, Vimeo, Zoom or Drive link. You can also send it after paying."></div>
+          <div class="full"><label for="fGoal">Who do you want watching these, and what should they hire you for?</label><textarea id="fGoal" rows="2" placeholder="Heads of L&amp;D at mid-size companies, for AI training programmes."></textarea></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div>
+        <div class="tot" id="sumPrice">$350 <small>one time</small></div>
+        <div class="what" id="sumWhat">Pilot · LinkedIn · Signal captions</div>
+      </div>
+      <div style="text-align:right">
+        <a class="btn" id="goCheckout" href="#">Continue to secure checkout</a>
+        <div class="microcopy" style="color:#b9b2a0;margin-top:8px">Card handled by Stripe. I never see your card details.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <h2>Straight answers</h2>
+    <div class="faq">
+      <details open>
+        <summary>Will my clips fill the whole phone screen?</summary>
+        <p>Yes. Every clip is 1080x1920, which is true 9:16 vertical, the same shape as anything you scroll past on TikTok. If your original is a normal landscape video, I reframe it rather than shrinking it into a letterbox. Captions are burned into the picture, so they show whether or not the viewer has sound on, which matters because most people don't.</p>
+      </details>
+      <details>
+        <summary>Can you guarantee views?</summary>
+        <p>No, and I'd be wary of anyone who does. What I guarantee is that strong clips go out consistently instead of not at all, and that I'll tell you honestly what the numbers say each month. The algorithm belongs to nobody. Consistency is the part that's actually within our control, so that's the part I sell.</p>
+      </details>
+      <details>
+        <summary>Why not just use an AI clipping tool for $20 a month?</summary>
+        <p>You can, and for some people that's the right answer. Those tools pick clips by detecting changes in volume and pacing. I read the transcript and ask which single idea would make your actual buyer stop scrolling, then I write the copy in your voice and tell you what to post first. If you have time each week to run a tool and fix its output, save your money. Most people I talk to tried exactly that, and the folder is still empty.</p>
+      </details>
+      <details>
+        <summary>What if I don't like the clips?</summary>
+        <p>Tell me which ones and I'll recut them, no charge and no awkwardness. And if the Pilot isn't useful, don't buy anything else. That's the point of making the first one a single small decision rather than a subscription.</p>
+      </details>
+      <details>
+        <summary>My footage is just a Zoom recording. Is that a problem?</summary>
+        <p>Not at all, that's most of what I work with. Audio quality matters far more than video quality here, because the captions carry the message. If your footage genuinely won't produce good clips, I'll tell you before you pay rather than after.</p>
+      </details>
+      <details>
+        <summary>Who owns the clips?</summary>
+        <p>You do, completely. It's your footage and your ideas. I don't post them anywhere, I don't use them in my own marketing without asking you first, and I keep no rights.</p>
+      </details>
+      <details>
+        <summary>Do I have to get on a call?</summary>
+        <p>No, and that's deliberate. Everything a call would tell you is on this page. Growth and Authority include a strategy session because at that level it's genuinely useful, but nothing is gated behind a sales call. If you'd rather talk anyway, reply to any email and we'll talk.</p>
+      </details>
+      <details>
+        <summary>What's a founding rate?</summary>
+        <p>I'm taking my first ten clients. You'd be betting on someone new, and the discount is what I think that bet is worth. Your rate is locked for 12 months, so you keep it even if prices go up. After ten clients it goes to standard pricing.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><a href="/" style="text-decoration:none">o1 Labs</a> &middot; Social Media Clips</span>
+    <span>Freddy Alcantara · <a href="mailto:hello@o1-labs.com">hello@o1-labs.com</a></span>
+  </div>
+</footer>
+
+<script>
+// ===========================================================================
+// PASTE YOUR FOUR STRIPE PAYMENT LINK URLS HERE. Nothing else needs changing.
+// ===========================================================================
+var STRIPE = {
+  pilot:     "https://buy.stripe.com/bJe6oIbbQaKY7rL2XD6oo00",
+  core:      "https://buy.stripe.com/aFa8wQdjYaKY4fz1Tz6oo01",
+  growth:    "https://buy.stripe.com/00w14o5Rw5qE27r2XD6oo02",
+  authority: "https://buy.stripe.com/5kQeVe5Rw7yM8vPcyd6oo03"
+};
+
+
+
+
+// ---- carry the clicked pricing tier into the order builder ----------------
+document.querySelectorAll('[data-pick]').forEach(function(a){
+  a.addEventListener('click', function(){
+    var btn = document.querySelector('#optTier .opt[data-k="' + a.dataset.pick + '"]');
+    if (btn) { btn.click(); btn.focus({preventScroll:true}); }
+  });
+});
+
+// ---- configurator ---------------------------------------------------------
+var state = { tier:'pilot', price:350, rec:'one time', label:'Pilot',
+              plats:['LinkedIn'], style:'Signal' };
+
+function single(groupId, onPick){
+  var g = document.getElementById(groupId);
+  g.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click', function(){
+      g.querySelectorAll('.opt').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      onPick(b); render();
+    });
+  });
+}
+function multi(groupId, onChange){
+  var g = document.getElementById(groupId);
+  g.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click', function(){
+      var on = b.getAttribute('aria-pressed') === 'true';
+      var picked = g.querySelectorAll('.opt[aria-pressed="true"]');
+      if (on && picked.length === 1) return;          // always keep one
+      b.setAttribute('aria-pressed', on ? 'false' : 'true');
+      onChange(Array.prototype.map.call(
+        g.querySelectorAll('.opt[aria-pressed="true"]'), function(x){ return x.dataset.v; }));
+      render();
+    });
+  });
+}
+
+single('optTier', function(b){
+  state.tier  = b.dataset.k;
+  state.price = parseInt(b.dataset.price, 10);
+  state.rec   = b.dataset.rec;
+  state.label = b.textContent.split('$')[0].trim();
+});
+single('optStyle', function(b){ state.style = b.dataset.v; });
+multi('optPlat',  function(vals){ state.plats = vals; });
+
+function render(){
+  document.getElementById('sumPrice').innerHTML =
+    '$' + state.price.toLocaleString() + ' <small>' + state.rec + '</small>';
+  document.getElementById('sumWhat').textContent =
+    state.label + ' · ' + state.plats.join(', ') + ' · ' + state.style + ' captions';
+}
+
+document.getElementById('goCheckout').addEventListener('click', function(e){
+  e.preventDefault();
+  var url = STRIPE[state.tier];
+  if (!url || url.indexOf('REPLACE_ME') === 0){
+    alert('Checkout is not connected yet. Paste your Stripe Payment Link URLs into the STRIPE object at the bottom of this file.');
+    return;
+  }
+  // Stripe Payment Links accept prefilled email and free-text client_reference_id,
+  // so your order details arrive attached to the payment.
+  var email = document.getElementById('fEmail').value.trim();
+  var note  = [state.label, state.plats.join('/'), state.style,
+               document.getElementById('fName').value.trim(),
+               document.getElementById('fLink').value.trim(),
+               document.getElementById('fGoal').value.trim()]
+              .filter(Boolean).join(' | ').replace(/[^\w\s|@.:\/-]/g,'').slice(0,190);
+  var sep = url.indexOf('?') > -1 ? '&' : '?';
+  var qs  = 'client_reference_id=' + encodeURIComponent(note.replace(/[^\w-]/g,'_').slice(0,190));
+  if (email) qs += '&prefilled_email=' + encodeURIComponent(email);
+  window.location.href = url + sep + qs;
+});
+
+render();
+</script>
+</body>
+</html>
