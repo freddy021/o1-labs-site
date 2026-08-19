@@ -114,6 +114,7 @@
   .tier.feature .btn{background:var(--signal);border-color:var(--signal);color:var(--ink)}
   .badge{display:inline-block;background:var(--signal);color:var(--ink);font-size:11px;font-weight:700;
          letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;margin-bottom:10px;align-self:flex-start}
+  .badge-ghost{visibility:hidden}
 
   /* configurator */
   .config{background:var(--paper-2)}
@@ -231,14 +232,14 @@
   /* why it matters */
   .why{background:var(--paper-2)}
   .whygrid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:var(--rule)}
-  .whycard{padding:28px 24px 28px 0;border-right:1px solid var(--line)}
+  .whycard{padding:28px 24px 28px 0;border-right:1px solid var(--line);display:flex;flex-direction:column}
   .whycard:last-child{border-right:0;padding-right:0}
   .whycard:not(:first-child){padding-left:24px}
   .whynum{font-family:Fraunces,serif;font-size:52px;font-weight:600;line-height:1;
           letter-spacing:-.03em;display:block;margin-bottom:12px}
   .whycard h3{font-size:16px;margin-bottom:8px}
   .whycard p{font-size:14.5px;color:var(--ink-soft)}
-  .whycard cite{display:block;margin-top:12px;font-style:normal;font-size:12px;
+  .whycard cite{display:block;margin-top:auto;padding-top:16px;font-style:normal;font-size:12px;
                 color:var(--ink-soft);opacity:.85;line-height:1.45}
   .whycard cite a{color:inherit}
   .whyread{margin-top:38px;padding:22px 24px;border:var(--rule);background:var(--paper);
@@ -495,6 +496,7 @@
         <a class="btn" href="#start" data-pick="pilot">Send me a video</a>
       </div>
       <div class="tier">
+        <span class="badge badge-ghost" aria-hidden="true">Start here</span>
         <span class="tier-name">Core</span>
         <div class="price">$650<small>/mo</small></div>
         <div class="was"><s>$850</s> standard rate</div>
@@ -508,6 +510,7 @@
         <a class="btn btn-ghost" href="#start" data-pick="core">Choose Core</a>
       </div>
       <div class="tier">
+        <span class="badge badge-ghost" aria-hidden="true">Start here</span>
         <span class="tier-name">Growth</span>
         <div class="price">$1,050<small>/mo</small></div>
         <div class="was"><s>$1,500</s> standard rate</div>
@@ -521,15 +524,16 @@
         <a class="btn btn-ghost" href="#start" data-pick="growth">Choose Growth</a>
       </div>
       <div class="tier">
+        <span class="badge badge-ghost" aria-hidden="true">Start here</span>
         <span class="tier-name">Authority</span>
         <div class="price">$2,500<small>/mo</small></div>
         <div class="was">I run the channel, not just the clips</div>
         <ul>
           <li>Everything in Growth</li>
+          <li>40 clips per month</li>
           <li><strong>I schedule and post for you</strong></li>
           <li>Channel management end to end</li>
           <li>Monthly strategy call</li>
-          <li>40 clips per month</li>
         </ul>
         <a class="btn btn-ghost" href="#start" data-pick="authority">Choose Authority</a>
       </div>
@@ -604,7 +608,7 @@
   <div class="wrap narrow">
     <h2>Straight answers</h2>
     <div class="faq">
-      <details open>
+      <details>
         <summary>Will my clips fill the whole phone screen?</summary>
         <p>Yes. Every clip is 1080x1920, which is true 9:16 vertical, the same shape as anything you scroll past on TikTok. If your original is a normal landscape video, I reframe it rather than shrinking it into a letterbox. Captions are burned into the picture, so they show whether or not the viewer has sound on, which matters because most people don't.</p>
       </details>
