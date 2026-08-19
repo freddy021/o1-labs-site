@@ -331,6 +331,24 @@ h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
 .offer p{font-size:15px;color:var(--ink-soft);flex:1;margin-bottom:20px}
 @media (max-width:900px){ .offers{grid-template-columns:1fr} }
 
+/* turnaround */
+.turnaround{margin-top:46px;border-top:var(--rule);padding-top:28px}
+.turnaround h3{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.turnaround>p{color:var(--ink-soft);font-size:15.5px;max-width:72ch;margin-bottom:24px}
+.turn-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.turn-item{padding:20px 26px 18px;border-right:1px solid var(--line)}
+.turn-item:first-child{padding-left:0}
+.turn-item:last-child{border-right:0;padding-right:0}
+.turn-item b{display:block;font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.turn-item span{display:block;margin-top:7px;font-size:14px;color:var(--ink-soft);line-height:1.45}
+.turn-note{margin-top:24px;font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:80ch;
+  border-left:2px solid var(--line);padding-left:16px}
+@media (max-width:900px){
+  .turn-grid{grid-template-columns:1fr}
+  .turn-item{border-right:0;border-bottom:1px solid var(--line);padding:18px 0}
+  .turn-item:last-child{border-bottom:0}
+}
+
 /* ===== ABOUT ===== */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:40px;align-items:start}
 .about-grid p{color:var(--ink-soft);margin-bottom:18px}
@@ -648,6 +666,31 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
           you posted.</p>
         <a href="#contact" class="arrowlink">Register interest <span class="ar">&rarr;</span></a>
       </div>
+    </div>
+
+    <div class="turnaround fade-in">
+      <h3>How quickly we can turn this around</h3>
+      <p>Most of the material already exists, so shaping it around your team is assembly rather than
+        invention. Measured from an agreed brief, these are the timelines we plan against.</p>
+      <div class="turn-grid">
+        <div class="turn-item">
+          <b>About 1 week</b>
+          <span>A single workshop, rebuilt around your team, your tools and your own examples</span>
+        </div>
+        <div class="turn-item">
+          <b>About 2 weeks</b>
+          <span>A full day, or a multi-session series delivered over several weeks</span>
+        </div>
+        <div class="turn-item">
+          <b>Within 2 weeks</b>
+          <span>Kick-off for the four-week AI Product Strategy Sprint, once the scope is agreed</span>
+        </div>
+      </div>
+      <p class="turn-note"><strong>These are typical timelines, not guarantees.</strong> They assume the
+        scope is settled and that we can get a short discovery conversation with the right people. Anything
+        that depends on your internal data, your procurement process or a legal review moves at your
+        organization's pace rather than ours, and we would rather say so now than miss a date later. If you
+        need something faster than this, ask. Sometimes we can, and we will tell you plainly when we cannot.</p>
     </div>
   </div>
 </section>
