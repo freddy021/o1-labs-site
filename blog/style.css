@@ -274,3 +274,8 @@ a { color: inherit; }
   html { scroll-behavior: auto; }
   .post-card, .post-more svg, .menu-overlay { transition: none; }
 }
+
+
+/* real wordmark in the nav */
+  .nav-logo{display:inline-flex;align-items:center;line-height:0;text-decoration:none}
+  .nav-logo img{height:22px;width:auto;display:block}
