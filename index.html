@@ -189,8 +189,8 @@ img{max-width:100%;display:block}
   -webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);
   border-bottom-color:rgba(20,20,15,0.10);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 8px 30px rgba(20,20,15,.06)}
-.nav-logo{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:2px;
-  text-transform:uppercase;text-decoration:none;color:var(--ink);transition:color .3s}
+.nav-logo{display:inline-flex;align-items:center;line-height:0;text-decoration:none}
+.nav-logo img{height:22px;width:auto;display:block}
 .nav-right{display:flex;align-items:center;gap:26px}
 .nav-lang{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:1.2px;
   text-transform:uppercase;cursor:pointer;text-decoration:none;color:var(--ink);transition:opacity .3s}
@@ -432,8 +432,8 @@ h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
 /* ===== FOOTER ===== */
 footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
 .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.foot-logo{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:2px;
-  text-transform:uppercase;color:var(--ink);text-decoration:none}
+.foot-logo{display:inline-flex;align-items:center;line-height:0;text-decoration:none}
+.foot-logo img{height:20px;width:auto;display:block}
 .foot-nav{display:flex;gap:24px;flex-wrap:wrap}
 .foot-nav a{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:1.2px;
   text-transform:uppercase;text-decoration:none;color:var(--ink);transition:opacity .3s}
@@ -453,7 +453,7 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
 <body>
 
 <nav class="nav over-light" id="mainNav">
-  <a href="/" class="nav-logo">o1 Labs</a>
+  <a href="/" class="nav-logo" aria-label="o1 Labs, home"><img src="/o1-labs-logo.png" alt="o1 Labs"></a>
   <div class="nav-right">
     <a href="#services" class="nav-lang">Services</a>
     <a href="#about" class="nav-lang">About</a>
@@ -500,7 +500,7 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
     </div>
     <div class="hero-meta">
       <div><b>20+</b><span>Years in tech, product, research, strategy and experience design with Fortune 500 teams</span></div>
-      <div><b>5+</b><span>Years teaching AI and technology for a global tech education provider</span></div>
+      <div><b>5+</b><span>Years teaching AI and technology with a global tech education provider partner</span></div>
       <div><b>4</b><span>Countries where we've run workshops, with two more planned this year</span></div>
     </div>
   </div>
@@ -717,12 +717,12 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
       <div class="fade-in">
         <div class="stat-row">
           <div class="stat">
-            <b>5+</b>
-            <span>Years teaching AI and technology<i>For a global tech education provider</i></span>
+            <b>20+</b>
+            <span>Years in tech, product, research, strategy and experience design<i>Much of it with Fortune 500 teams</i></span>
           </div>
           <div class="stat">
-            <b>4</b>
-            <span>Countries where we've run workshops so far<i>US &middot; Bahrain &middot; Oman &middot; UAE. Two more planned this year.</i></span>
+            <b>5+</b>
+            <span>Years teaching AI and technology<i>With a global tech education provider partner</i></span>
           </div>
         </div>
       </div>
@@ -902,7 +902,7 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <a href="/" class="foot-logo">o1 Labs</a>
+      <a href="/" class="foot-logo" aria-label="o1 Labs, home"><img src="/o1-labs-logo.png" alt="o1 Labs"></a>
       <nav class="foot-nav">
         <a href="#services">Services</a>
         <a href="#about">About</a>
