@@ -331,28 +331,39 @@ h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
 .offer p{font-size:15px;color:var(--ink-soft);flex:1;margin-bottom:20px}
 @media (max-width:900px){ .offers{grid-template-columns:1fr} }
 
-/* coming soon: animated readiness orb */
+/* coming soon: live metric orb */
 .tease-visual{display:flex;justify-content:flex-end}
-.orb{position:relative;width:268px;height:268px;display:grid;place-items:center}
-.orb-glow{position:absolute;inset:6%;border-radius:50%;
-  background:radial-gradient(circle at 50% 44%, rgba(139,124,246,.50), rgba(196,181,253,.26) 46%, rgba(196,181,253,0) 72%);
-  filter:blur(16px);animation:orbBreathe 6.5s ease-in-out infinite}
+.orb{position:relative;width:268px;height:268px;display:grid;place-items:center;
+  animation:orbBeat 4.4s ease-in-out infinite}
+.orb-glow{position:absolute;inset:8%;border-radius:50%;
+  background:radial-gradient(circle at 50% 44%, rgba(139,124,246,.55), rgba(196,181,253,.28) 46%, rgba(196,181,253,0) 72%);
+  filter:blur(18px);animation:orbGlow 4.4s ease-in-out infinite}
 .orb-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
 .orb-track{fill:none;stroke:rgba(20,20,15,.10);stroke-width:9}
 .orb-prog{fill:none;stroke:url(#eavoRing);stroke-width:9;stroke-linecap:round;
-  stroke-dasharray:515;stroke-dashoffset:515;
-  animation:orbDraw 2.2s cubic-bezier(.32,.8,.3,1) .35s forwards, orbPulse 6.5s ease-in-out 2.6s infinite}
-.orb-read{position:relative;text-align:center;line-height:1}
-.orb-read b{display:block;font-family:var(--serif);font-size:54px;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
-.orb-read span{display:block;margin-top:9px;font-family:var(--sans);font-size:10px;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-@keyframes orbDraw{to{stroke-dashoffset:124}}
-@keyframes orbBreathe{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes orbPulse{0%,100%{opacity:1}50%{opacity:.84}}
+  stroke-dasharray:515.2;stroke-dashoffset:515.2;
+  transition:stroke-dashoffset 1.15s cubic-bezier(.33,.9,.28,1)}
+.orb-scan{fill:none;stroke:rgba(139,124,246,.38);stroke-width:2;stroke-linecap:round;
+  stroke-dasharray:26 558;transform-origin:100px 100px;animation:orbScan 9s linear infinite}
+.orb-read{position:relative;text-align:center;line-height:1;
+  transition:opacity .42s ease, transform .42s ease}
+.orb-read.swap{opacity:0;transform:translateY(7px)}
+.orb-read b{display:block;font-family:var(--serif);font-weight:600;letter-spacing:-.03em;color:var(--ink);
+  font-size:52px;transition:font-size .2s ease;white-space:nowrap}
+.orb-read span{display:block;margin-top:10px;font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.orb-dots{position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.orb-dots i{width:5px;height:5px;border-radius:50%;background:rgba(20,20,15,.16);transition:background .35s ease}
+.orb-dots i.on{background:#8b7cf6}
+@keyframes orbBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.022)}}
+@keyframes orbGlow{0%,100%{opacity:.68;transform:scale(.98)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes orbScan{to{transform:rotate(360deg)}}
 @media (max-width:900px){ .tease-visual{justify-content:center} }
 @media (prefers-reduced-motion:reduce){
-  .orb-glow{animation:none}
-  .orb-prog{animation:orbDraw .01s forwards}
+  .orb,.orb-glow,.orb-scan{animation:none}
+  .orb-prog{transition:none}
+  .orb-read{transition:none}
+  .orb-scan{display:none}
 }
 
 /* ===== ABOUT ===== */
@@ -723,7 +734,7 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
         <a href="#contact" class="arrowlink">Get notified <span class="ar">&rarr;</span></a>
       </div>
       <div class="tease-visual" aria-hidden="true">
-        <div class="orb">
+        <div class="orb" id="orb">
           <span class="orb-glow"></span>
           <svg class="orb-ring" viewBox="0 0 200 200" role="presentation" focusable="false">
             <defs>
@@ -734,9 +745,11 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
               </linearGradient>
             </defs>
             <circle class="orb-track" cx="100" cy="100" r="82"/>
-            <circle class="orb-prog" cx="100" cy="100" r="82"/>
+            <circle class="orb-scan" cx="100" cy="100" r="93"/>
+            <circle class="orb-prog" id="orbProg" cx="100" cy="100" r="82"/>
           </svg>
-          <div class="orb-read"><b>76</b><span>Readiness</span></div>
+          <div class="orb-read" id="orbRead"><b id="orbVal">76</b><span id="orbLbl">Readiness</span></div>
+          <div class="orb-dots" id="orbDots"></div>
         </div>
       </div>
     </div>
@@ -807,11 +820,10 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
       </details>
       <details class="faq-item fade-in">
         <summary class="faq-q">How quickly can you turn a program around?</summary>
-        <p class="faq-a">Most of the material already exists, so shaping it around your team is assembly
-          rather than invention. Measured from an agreed brief, we plan against about a week for a single
-          workshop rebuilt around your team and your own examples, about two weeks for a full day or a
-          multi-session series, and kick-off within two weeks for the four-week AI Product Strategy Sprint
-          once the scope is agreed.</p>
+        <p class="faq-a">Measured from an agreed brief, we plan against about a week for a single
+          workshop built around your team, your tools and your own examples, about two weeks for a full day
+          or a multi-session series, and kick-off within two weeks for the four-week AI Product Strategy
+          Sprint once the scope is agreed.</p>
         <p class="faq-a">These are typical timelines, not guarantees. They assume the scope is settled and
           that we can get a short discovery conversation with the right people. Anything that depends on
           your internal data, your procurement process or a legal review moves at your organization's pace
@@ -1022,5 +1034,75 @@ if (contactForm) {
 }
 </script>
 
+<script>
+/* Coming Soon orb: cycles Eavo-style metrics, animates the arc between them. */
+(function () {
+  var orb = document.getElementById('orb');
+  if (!orb) return;
+  var prog = document.getElementById('orbProg'),
+      read = document.getElementById('orbRead'),
+      val  = document.getElementById('orbVal'),
+      lbl  = document.getElementById('orbLbl'),
+      dots = document.getElementById('orbDots');
+  if (!prog || !read || !val || !lbl) return;
+
+  var C = 515.2;
+  var METRICS = [
+    { v: '76',      l: 'Readiness', p: 0.76 },
+    { v: '7h 42m',  l: 'Sleep',     p: 0.88 },
+    { v: '84%',     l: 'Recovery',  p: 0.84 },
+    { v: '6,210',   l: 'Steps',     p: 0.62 }
+  ];
+
+  if (dots) {
+    METRICS.forEach(function () { dots.appendChild(document.createElement('i')); });
+  }
+  var pips = dots ? dots.querySelectorAll('i') : [];
+
+  function fit(text) {
+    var n = text.length;
+    return n <= 3 ? '52px' : (n <= 5 ? '38px' : '31px');
+  }
+
+  function paint(i) {
+    var m = METRICS[i];
+    prog.style.strokeDashoffset = (C * (1 - m.p)).toFixed(1);
+    val.textContent = m.v;
+    val.style.fontSize = fit(m.v);
+    lbl.textContent = m.l;
+    for (var k = 0; k < pips.length; k++) pips[k].classList.toggle('on', k === i);
+  }
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0;
+  paint(0);
+
+  if (reduced) return;
+
+  var timer = null;
+  function step() {
+    read.classList.add('swap');
+    setTimeout(function () {
+      i = (i + 1) % METRICS.length;
+      paint(i);
+      read.classList.remove('swap');
+    }, 420);
+  }
+  function start() { if (!timer) timer = setInterval(step, 3400); }
+  function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+  // only run while it is actually on screen
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries[0].isIntersecting ? start() : stop();
+    }, { threshold: 0.25 }).observe(orb);
+  } else {
+    start();
+  }
+  document.addEventListener('visibilitychange', function () {
+    document.hidden ? stop() : start();
+  });
+})();
+</script>
 </body>
 </html>
