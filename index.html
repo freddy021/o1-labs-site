@@ -331,22 +331,28 @@ h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
 .offer p{font-size:15px;color:var(--ink-soft);flex:1;margin-bottom:20px}
 @media (max-width:900px){ .offers{grid-template-columns:1fr} }
 
-/* turnaround */
-.turnaround{margin-top:46px;border-top:var(--rule);padding-top:28px}
-.turnaround h3{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
-.turnaround>p{color:var(--ink-soft);font-size:15.5px;max-width:72ch;margin-bottom:24px}
-.turn-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-.turn-item{padding:20px 26px 18px;border-right:1px solid var(--line)}
-.turn-item:first-child{padding-left:0}
-.turn-item:last-child{border-right:0;padding-right:0}
-.turn-item b{display:block;font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
-.turn-item span{display:block;margin-top:7px;font-size:14px;color:var(--ink-soft);line-height:1.45}
-.turn-note{margin-top:24px;font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:80ch;
-  border-left:2px solid var(--line);padding-left:16px}
-@media (max-width:900px){
-  .turn-grid{grid-template-columns:1fr}
-  .turn-item{border-right:0;border-bottom:1px solid var(--line);padding:18px 0}
-  .turn-item:last-child{border-bottom:0}
+/* coming soon: animated readiness orb */
+.tease-visual{display:flex;justify-content:flex-end}
+.orb{position:relative;width:268px;height:268px;display:grid;place-items:center}
+.orb-glow{position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle at 50% 44%, rgba(139,124,246,.50), rgba(196,181,253,.26) 46%, rgba(196,181,253,0) 72%);
+  filter:blur(16px);animation:orbBreathe 6.5s ease-in-out infinite}
+.orb-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.orb-track{fill:none;stroke:rgba(20,20,15,.10);stroke-width:9}
+.orb-prog{fill:none;stroke:url(#eavoRing);stroke-width:9;stroke-linecap:round;
+  stroke-dasharray:515;stroke-dashoffset:515;
+  animation:orbDraw 2.2s cubic-bezier(.32,.8,.3,1) .35s forwards, orbPulse 6.5s ease-in-out 2.6s infinite}
+.orb-read{position:relative;text-align:center;line-height:1}
+.orb-read b{display:block;font-family:var(--serif);font-size:54px;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.orb-read span{display:block;margin-top:9px;font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+@keyframes orbDraw{to{stroke-dashoffset:124}}
+@keyframes orbBreathe{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes orbPulse{0%,100%{opacity:1}50%{opacity:.84}}
+@media (max-width:900px){ .tease-visual{justify-content:center} }
+@media (prefers-reduced-motion:reduce){
+  .orb-glow{animation:none}
+  .orb-prog{animation:orbDraw .01s forwards}
 }
 
 /* ===== ABOUT ===== */
@@ -667,31 +673,6 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
         <a href="#contact" class="arrowlink">Register interest <span class="ar">&rarr;</span></a>
       </div>
     </div>
-
-    <div class="turnaround fade-in">
-      <h3>How quickly we can turn this around</h3>
-      <p>Most of the material already exists, so shaping it around your team is assembly rather than
-        invention. Measured from an agreed brief, these are the timelines we plan against.</p>
-      <div class="turn-grid">
-        <div class="turn-item">
-          <b>About 1 week</b>
-          <span>A single workshop, rebuilt around your team, your tools and your own examples</span>
-        </div>
-        <div class="turn-item">
-          <b>About 2 weeks</b>
-          <span>A full day, or a multi-session series delivered over several weeks</span>
-        </div>
-        <div class="turn-item">
-          <b>Within 2 weeks</b>
-          <span>Kick-off for the four-week AI Product Strategy Sprint, once the scope is agreed</span>
-        </div>
-      </div>
-      <p class="turn-note"><strong>These are typical timelines, not guarantees.</strong> They assume the
-        scope is settled and that we can get a short discovery conversation with the right people. Anything
-        that depends on your internal data, your procurement process or a legal review moves at your
-        organization's pace rather than ours, and we would rather say so now than miss a date later. If you
-        need something faster than this, ask. Sometimes we can, and we will tell you plainly when we cannot.</p>
-    </div>
   </div>
 </section>
 
@@ -741,8 +722,22 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
           when it opens up.</p>
         <a href="#contact" class="arrowlink">Get notified <span class="ar">&rarr;</span></a>
       </div>
-      <div>
-        <img src="/stealth-device.png" alt="Preview mockup of the upcoming o1 Labs AI health and wellness app on a phone" width="270" height="349" loading="lazy">
+      <div class="tease-visual" aria-hidden="true">
+        <div class="orb">
+          <span class="orb-glow"></span>
+          <svg class="orb-ring" viewBox="0 0 200 200" role="presentation" focusable="false">
+            <defs>
+              <linearGradient id="eavoRing" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c4b5fd"/>
+                <stop offset="55%" stop-color="#8b7cf6"/>
+                <stop offset="100%" stop-color="#6d5ce0"/>
+              </linearGradient>
+            </defs>
+            <circle class="orb-track" cx="100" cy="100" r="82"/>
+            <circle class="orb-prog" cx="100" cy="100" r="82"/>
+          </svg>
+          <div class="orb-read"><b>76</b><span>Readiness</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -809,6 +804,19 @@ footer{padding:34px 0 40px;font-size:14px;color:var(--ink-soft)}
           product management, and tool deep-dives across Gemini and Claude, plus a four-week AI Product
           Strategy Sprint. An Executive AI Leadership Program for senior decision makers is currently in
           development.</p>
+      </details>
+      <details class="faq-item fade-in">
+        <summary class="faq-q">How quickly can you turn a program around?</summary>
+        <p class="faq-a">Most of the material already exists, so shaping it around your team is assembly
+          rather than invention. Measured from an agreed brief, we plan against about a week for a single
+          workshop rebuilt around your team and your own examples, about two weeks for a full day or a
+          multi-session series, and kick-off within two weeks for the four-week AI Product Strategy Sprint
+          once the scope is agreed.</p>
+        <p class="faq-a">These are typical timelines, not guarantees. They assume the scope is settled and
+          that we can get a short discovery conversation with the right people. Anything that depends on
+          your internal data, your procurement process or a legal review moves at your organization's pace
+          rather than ours, and we would rather say so now than miss a date later. If you need something
+          faster than this, ask. Sometimes we can, and we will tell you plainly when we cannot.</p>
       </details>
       <details class="faq-item fade-in">
         <summary class="faq-q">How do I get started with o1 Labs?</summary>
