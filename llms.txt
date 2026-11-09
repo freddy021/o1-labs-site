@@ -1,8 +1,8 @@
 # o1 Labs
 
-> o1 Labs is an AI education, consulting, and transformation firm founded by Freddy Alcantara. We help organizations adopt artificial intelligence with confidence, pairing hands-on education with strategic product work and enterprise learning programs. Tagline: "Shaping the future of intelligent work."
+> o1 Labs is an AI consulting firm founded by Freddy Alcantara. We help startups and growing businesses put AI to work: we find where it pays off, shape the strategy and product decisions around it, and build and run the AI agents that do the work. Tagline: "Shaping the future of intelligent work."
 
-o1 Labs operates at the intersection of education, product strategy, and organizational change. Our founding belief: AI should amplify human capability, not replace it. We do not just advise, we build alongside our clients.
+o1 Labs operates at the intersection of strategy, product, and hands-on AI delivery. Our founding belief: AI should amplify human capability, not replace it. We do not just advise, we build alongside our clients.
 
 Canonical site: https://o1-labs.com/
 Contact: hello@o1-labs.com
@@ -10,23 +10,23 @@ Founder: Freddy Alcantara, https://www.linkedin.com/in/freddyalcantara/
 
 ## Main pages
 
-- [o1 Labs home](https://o1-labs.com/): Who we are, what we do, the three service lines, track record, and the contact form.
+- [o1 Labs home](https://o1-labs.com/): Who we are, what we do, the four services, and the contact form.
 - [Free AI Readiness Check](https://o1-labs.com/ai-readiness/): A free two minute self assessment. Five questions that score how prepared a team is to adopt AI and return a tailored next step. No call required.
 - [o1 Clips, done-for-you short-form video](https://o1-labs.com/clips/): A separate productized service. Send one long recording you already own and get finished vertical clips back, captioned and ready to post, within 72 hours. Full pricing on the page.
-- [The o1 Labs Blog](https://o1-labs.com/blog/): Weekly practical writing on agentic AI, enterprise adoption, model selection, and AI education. Every article can also be listened to.
+- [The o1 Labs Blog](https://o1-labs.com/blog/): Weekly practical writing on agentic AI, enterprise adoption, model selection, and the future of work. Every article can also be listened to.
 
 ## Services
 
-- **AI Education and Workshops**: Hands-on programs that demystify AI and build practical skills across an organization, from executive briefings to technical deep dives. https://o1-labs.com/#services
-- **Strategic AI Product Consulting**: From discovery to deployment, we partner with product teams to identify AI opportunities, design intelligent features, and build roadmaps that deliver measurable value. https://o1-labs.com/#services
-- **Enterprise Learning and Development**: End to end L&D programs that embed AI fluency into company culture, from curriculum design to train-the-trainer certification and ongoing capability assessments. https://o1-labs.com/#services
+- **AI Opportunity Audit**: A review of how a team actually spends its time, ending in a ranked list of where AI will save the most hours or money and a clear plan for what to do first. https://o1-labs.com/#services
+- **AI Strategy and Product Consulting**: From proof of concept to production, we partner with founders and product teams to choose the right AI opportunities, design intelligent features, and build roadmaps that deliver measurable value. https://o1-labs.com/#services
+- **AI Agent Teams**: Small teams of AI agents built around the tools a client already uses, each handling a real job such as lead follow-up, inbox and scheduling, or weekly reporting, then monitored, fixed and improved every month. https://o1-labs.com/#services
 - **Social Media Clips (o1 Clips)**: Turning long-form footage a client already owns into short vertical clips for LinkedIn, Instagram, TikTok, and YouTube, so leaders stay visible between engagements. https://o1-labs.com/clips/
 
-## Featured programs
+## Featured offerings
 
-- **Applied AI Workshops**: Immersive, hands-on workshops spanning AI fundamentals, AI for product management, and tool deep dives across Gemini and Claude.
+- **AI Opportunity Audit**: A short, fixed-scope review ending in a ranked list of AI opportunities and a plan for the first one.
 - **AI Product Strategy Sprint**: A four-week engagement to identify and validate a team's highest-impact AI opportunities.
-- **Executive AI Leadership Program**: In development, a certification for senior decision makers.
+- **AI Agent Team Starter**: A first set of AI agents, built around a client's tools and tested on real work, plus monthly monitoring and improvements once live.
 
 ## o1 Clips pricing
 
@@ -46,15 +46,14 @@ All rates below are founding rates for the first ten clients, locked for 12 mont
 - [Agentic AI, explained for teams that actually ship](https://o1-labs.com/blog/agentic-ai-explained-for-teams.html): A plain-English guide to what agents are, where they help, and where they do not.
 - [Why most enterprise AI pilots stall, and how to get past it](https://o1-labs.com/blog/why-enterprise-ai-pilots-stall.html): Most companies can build an AI pilot. Far fewer get it into daily use. Where AI initiatives quietly die, and the moves that get them across the line.
 - [Gemini or Claude? A practical way to choose](https://o1-labs.com/blog/gemini-or-claude-how-to-choose.html): A framework for matching Gemini, Claude, and others to the actual work a team needs done, instead of asking which model is best.
-- [How to run an AI workshop your team actually remembers](https://o1-labs.com/blog/ai-workshops-that-stick.html): A one-off AI talk wears off in a week. How to design hands-on workshops that change how a team works.
 
 ## Who we serve
 
-Organizations of all sizes, from teams new to AI through to senior leadership. Beginner to executive level. o1 Clips specifically serves consultants, coaches, founders, and Learning and Development leaders who already have long-form footage.
+Startups and growing businesses that know AI could save them real time, but do not have someone in-house to build it and keep it running. We usually work with founders, operators and product leaders. o1 Clips specifically serves consultants, coaches, founders, and Learning and Development leaders who already have long-form footage.
 
 ## Track record
 
-Workshops delivered across 4 countries: the US, Bahrain, Oman, and the UAE, with two more planned this year. Worked with teams at CNBC, Raytheon Technologies, JPMorgan Chase, Univision, Uber, Bank of Montreal, Ila Bank, Early Riser, and General Assembly. AI courses and curricula taught or built across Gemini, Gemini Gems, and the Claude Suite. Twenty plus years in tech, product, research, strategy and experience design, much of it with Fortune 500 teams.
+Twenty plus years in tech, product, research, strategy and experience design, much of it with Fortune 500 teams. The team has worked with CNBC, Raytheon Technologies, JPMorgan Chase, Univision, Bank of Montreal, and Early Riser.
 
 ## Stealth product
 

@@ -42,6 +42,11 @@
       "source": "/blog/audio/ai-is-eating-the-bottom-rung.mp3",
       "destination": "/blog/audio/ai-is-taking-entry-level-work.mp3",
       "permanent": true
+    },
+    {
+      "source": "/blog/ai-workshops-that-stick.html",
+      "destination": "/blog/",
+      "permanent": true
     }
   ]
 }

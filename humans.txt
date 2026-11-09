@@ -6,12 +6,12 @@
 
 /* WHAT WE DO */
 
-  AI education, consulting, and transformation.
+  AI consulting and AI agent teams.
   Shaping the future of intelligent work.
 
 /* SITE */
 
-  Last update: 2026/06/09
+  Last update: 2026/11/05
   Language: English
   Standards: HTML5, CSS3
   Components: Cormorant Garamond, DM Sans
